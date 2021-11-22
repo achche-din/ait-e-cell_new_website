@@ -14,57 +14,137 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# APIs
 
-### `npm run build`
+## API no. 1 - event_types
+```json
+{
+    "id": 1,
+    "title": "Going from Mildly Successful to Wildly Successful",
+    "description": "Discover the hidden keys to becoming an Outlier",
+    "date_from": "2021-10-03T10:08:45Z",
+    "date_to": "2021-10-03T12:00:00Z",
+    "image_url": "",
+    "meet_url": "",
+    "others": "",
+    "files_attachment": null,
+    "comments": "",
+    "event_type": 1
+},
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- ############# -->
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## API no. 2 - events
+```json
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## API no. 3 - lastestupdates
+```json
+{
+    "id": 1,
+    "title": "India Australia Circular Economy Hackathon for students/startups",
+    "date_from": "2021-11-03T20:12:54Z",
+    "date_to": "2021-11-06T20:12:55Z",
+    "link": "https://aim.gov.in/iace-hackathon.php#:~:text=India%20Australia%20Circular%20Economy%20Hackathon,nations%20in%20fostering%20innovative%20solutions"
+},
+```
+<!-- ############# -->
 
-### `npm run eject`
+## API no. 4 - documents
+```json
+{
+    "id": 1,
+    "title": "National Innovation Startup policy",
+    "description": "",
+    "document_link": "https://aitecell.in/assets/documents/AICTE_InnovStartupPolicyNISP_2019.pdf",
+    "image": null
+},
+```
+<!-- ############# -->
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## API no. 5 - videos
+```json
+{
+    "id": 1,
+    "title": "https://youtu.be/pDYsFS3a6eA",
+    "description": "",
+    "video_link": "https://youtu.be/pDYsFS3a6eA"
+}
+```
+<!-- ############# -->
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## API no. 6 - startups
+```json
+{
+    "id": 1,
+    "title": "Tiltedbooks",
+    "description": "",
+    "image": null,
+    "link": "https://www.tiltedbooks.in/"
+},
+```
+<!-- ############# -->
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## API no. 7 - categories
+```json
+{
+    "id": 1,
+    "title": "Alumni Entrepreneur"
+},
+```
+<!-- ############# -->
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## API no. 8 - people
+```json
+{
+    "id": 1,
+    "name": "Karan Rai",
+    "designation": "Red Panda Innovation Labs building software products.",
+    "image": null,
+    "description": "",
+    "social_links": "https://www.linkedin.com/in/karanrai/",
+    "category": [
+        1
+    ]
+},
+```
+<!-- ############# -->
 
-## Learn More
+## API no. 9 - links
+```json
+{
+    "id": 1,
+    "title": "Email",
+    "link": "http://ecell@aitpune.edu.in",
+    "description": "",
+    "logo_url": ""
+},
+```
+<!-- ############# -->
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## API no. 10 - internships
+```json
+{
+    "id": 2,
+    "title": "Digital Persistent, a company by an AITian, for the AITians",
+    "company_link": "",
+    "description": "",
+    "image": null,
+    "apply_link": "",
+    "deadline": null
+}
+```
+<!-- ############# -->
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## API no. 11 - collaborations
+```json
+{
+    "id": 4,
+    "title": "T- Hub",
+    "description": "T hub is a very big brand with a very rich eco system for start ups. It is one of the prime “Atal incubation Center” funded by Govt. of India. Networking Opportunities, T-Hub in partnership with academia, investors, mentors, service providers and the government has over 500 startups.",
+    "image": null,
+    "link": "https://www.t-hub.co/"
+}
+```
