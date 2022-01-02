@@ -1,0 +1,65 @@
+.mainDiv{
+   max-width: 100%;
+   height:90vh;
+   padding:2%;
+   display:flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.nameCard{
+    color:azure;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:2%
+}
+.nameCard1{
+    color:azure;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding:2%;
+    
+}
+.mainDiv1{
+    max-width: 100%;
+    background-color: #444444;
+    color:rgb(43, 41, 41);
+    height:100vh;
+    padding:2%;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+ }
+.cards1{
+    height:80%;
+    width:40%;
+    padding:2%;
+    margin:2%;
+    color:rgb(43, 41, 41);
+    background-color: rgb(245, 245, 245);
+    
+}
+.cards2{
+    height:80%;
+    width:50%;
+    /* padding:2%; */
+    margin:2%;
+    color:rgb(43, 41, 41);
+    background-color: rgb(245, 245, 245);
+    
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: space-around;
+    
+}
+.track1{
+    width:50%;
+}
+  

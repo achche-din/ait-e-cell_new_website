@@ -7,6 +7,9 @@ export const TeamPage = () => {
 		<div>
 			<div className="card-wrapper">
 				<TeamCard />
+				<TeamCard />
+				<TeamCard />
+				<TeamCard />
 			</div>
 		</div>
 	)
