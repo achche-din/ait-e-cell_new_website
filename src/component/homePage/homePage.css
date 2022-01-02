@@ -36,6 +36,7 @@
     align-items: center;
  }
 .cards1{
+    border-radius: 2%;
     height:80%;
     width:40%;
     padding:2%;
@@ -45,6 +46,7 @@
     
 }
 .cards2{
+    border-radius: 2%;
     height:80%;
     width:50%;
     /* padding:2%; */

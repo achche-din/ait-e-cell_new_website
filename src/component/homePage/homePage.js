@@ -30,7 +30,7 @@ export const HomePage = () => {
               </div>
                 <div style={{margin:"1%"}}><h3>Startup Saga: A bug in start-up</h3></div>
                 
-                <p>A brilliant notion requires careful refining to become a reality. I&E-Cell of AIT Pune is pleased to deliver one of its kind STARTUP SAGA - A BUG IN A STARTUP.
+                <p style={{lineHeight:"2em"}}>A brilliant notion requires careful refining to become a reality. I&E-Cell of AIT Pune is pleased to deliver one of its kind STARTUP SAGA - A BUG IN A STARTUP.
                    Startup Saga - A bug in a start-up in which we will provide you a specific range of problem statements faced by startups and decide the better innovation towards it.</p>
            <div style={{margin:"2%"}}> <h1>Results are diclared -</h1></div>
          
@@ -50,7 +50,7 @@ export const HomePage = () => {
          
           </div>
           <div className="cards2" >
-             <img  style={{height:"100%" , width:"100%"}} src="https://aitecell.in/assets/img/startup-saga.png" alt="balckHat"/>
+             <img  style={{height:"100%" , width:"100%" , borderRadius:"2%"}} src="https://aitecell.in/assets/img/startup-saga.png" alt="balckHat"/>
           </div>
         </div>
         </div>
