@@ -29,7 +29,18 @@
     background-color: #444444;
     color:rgb(43, 41, 41);
     height:100vh;
-    padding:2%;
+    padding:1%;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+ }
+ .mainDiv2{
+    max-width: 100%;
+    background-color: #eea010;
+    color:rgb(43, 41, 41);
+    height:100vh;
+    padding:1%;
     display:flex;
     flex-direction: row;
     justify-content: center;
@@ -52,7 +63,7 @@
     /* padding:2%; */
     margin:2%;
     color:rgb(43, 41, 41);
-    background-color: rgb(245, 245, 245);
+    background-color: rgba(245, 245, 245, 0);
     
 }
 .container{
@@ -64,4 +75,103 @@
 .track1{
     width:50%;
 }
+.dwnBtn{
+    height:2em;
+    width:8em;
+    padding:5px;;
+     
+}
   
+
+.mainDivAbt{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding:2.5%;
+}
+.hadding{
+    font-weight: 400;
+    margin:1%;
+}
+
+
+.section{
+   display:flex;
+   /* flex-direction:row; */
+   /* align-items: center; */
+   justify-content: center;
+   margin-bottom:1%;
+
+}
+.vision{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:40%;
+    padding:5px;
+    margin-right:5px;
+}
+.mission{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:40%;
+    margin-left:5px;
+    padding:5px;
+}
+.vedioDiv{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    background-color: aqua;
+}
+.twoDiv{
+    display:flex;
+}
+.oneDIv{
+    display:flex;
+}
+.vedioCard{
+    height:40vh;
+    width:60vh;
+    background-color: blue;
+    margin:1.5%;
+}
+.pastEventContainer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    width:100%;
+}
+.headingPastEvent{
+    /* width:100%; */
+    text-align: center;
+    margin:20px 10px;
+
+}
+.headingPastEvent h1{
+    border: 2px solid black;
+    border-radius: 30px;
+    padding:10px 40px
+}
+.cards{
+    width:100vw;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row !important;
+    padding:2%;
+    justify-content: center;
+    align-items: center;
+
+}
+.card1{
+    width:30%;
+    min-width:300px;
+    height:50vh;
+    background-color: #eea010;
+    margin:2px;
+    border-radius: 10px;
+}
