@@ -1,9 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import "./index.css";
-// TODO: create toggle functionality
+
 export const Navbar = () => {
   const [isActive, setisActive] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
   const toggle = (e) => {
     // setisActive(!isActive);
     // const dom = e.target.innerT;
@@ -18,8 +20,20 @@ export const Navbar = () => {
   const sidebarCloseHandler = () => {
     sidebar.current.style.transform = "translateX(0)";
   };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", () =>
+        setScrolled(window.pageYOffset > 200)
+      );
+    }
+  }, []);
+
   return (
-    <header id="header" class="fixed-top  ">
+    <header
+      id="header"
+      className={scrolled ? "fixed-top header-scrolled" : "fixed-top"}
+    >
       <div className="container d-flex align-items-center">
         <a href="index.html" className="logo mr-auto">
           <img
