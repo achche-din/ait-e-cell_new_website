@@ -1,16 +1,62 @@
-import React from 'react'
-import { TeamCard } from './TeamCard'
-import './TeamPage.css'
+import React, { useEffect, useState } from "react";
+import { Footer } from "../Footer";
+
+import { TeamCard } from "./TeamCard";
+import "./TeamPage.css";
 
 export const TeamPage = () => {
-	return (
-		<div>
-			<div className="card-wrapper">
-				<TeamCard />
-				<TeamCard />
-				<TeamCard />
-				<TeamCard />
-			</div>
-		</div>
-	)
-}
+  const [teams, setTeams] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  async function fetchTeamsJSON() {
+    const response = await fetch(
+      "https://aitecell.herokuapp.com/api/people/ecell_team/?format=json"
+    );
+    const teams = await response.json();
+    setTeams(
+      teams.filter((data) => {
+        return data.category[0] == "Team Member";
+      })
+    );
+    setIsLoading(false);
+  }
+
+  useEffect(() => {
+    fetchTeamsJSON();
+  }, []);
+  return (
+    <div>
+      <div class="section-title " style={{ marginTop: "8rem" }}>
+        <h2 class="display-5">Our Team</h2>
+      </div>
+      {!isLoading ? (
+        <div className="card-wrapper">
+          {teams.map((item) => {
+            const {
+              id,
+              name,
+              designation,
+              image,
+              description,
+              social_links,
+              passout_year,
+            } = item;
+            return (
+              <TeamCard
+                key={id}
+                name={name}
+                designation={designation}
+                description={description}
+                social_links={social_links}
+                passout_year={passout_year}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <div className="loading mt-5 mb-5">Loading..</div>
+      )}
+
+      <Footer />
+    </div>
+  );
+};

@@ -3,7 +3,11 @@ import "./index.css";
 
 export const Newsletter = () => {
   return (
-    <section class="services newletter" id="solution">
+    <section
+      class="services newletter"
+      id="solution"
+      style={{ backgroundColor: "#f1c50e" }}
+    >
       <div class="container solution-event d-flex   ">
         <div class="row">
           <div class="col-lg-7 bg-white py-2 col-md-12 ">

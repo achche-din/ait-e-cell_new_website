@@ -1,36 +1,106 @@
-import React from "react";
-
+import React, { useState, useRef } from "react";
+import { Icon } from "@iconify/react";
 import "./index.css";
-
+// TODO: create toggle functionality
 export const Navbar = () => {
-  return (
-    <header id="header" class="fixed-top ">
-      <div class="container d-flex align-items-center">
-        <a href="index.html" class="logo mr-auto">
-          <img src="assets/img/logo.png" alt="" class="img-fluid" />
-        </a>
+  const [isActive, setisActive] = useState(false);
+  const toggle = (e) => {
+    // setisActive(!isActive);
+    // const dom = e.target.innerT;
+    // dom.style.classList.add("active");
+    // console.log(dom);
+  };
+  const sidebar = useRef();
+  const sidebarOpenHandler = () => {
+    sidebar.current.style.transform = "translateX(100%)";
+  };
 
-        <nav class="nav-menu d-none d-lg-block">
+  const sidebarCloseHandler = () => {
+    sidebar.current.style.transform = "translateX(0)";
+  };
+  return (
+    <header id="header" class="fixed-top  ">
+      <div className="container d-flex align-items-center">
+        <a href="index.html" className="logo mr-auto">
+          <img
+            src="https://aitecell.in/assets/img/logo.png"
+            alt="ss"
+            className="img-fluid"
+          />
+        </a>
+        <Icon
+          icon="mdi:menu"
+          color="white"
+          width="30"
+          height="30"
+          className="menu_icon"
+          onClick={sidebarOpenHandler}
+        />
+        <nav className="nav-menu d-none d-lg-block">
           <ul>
-            <li class="active">
+            <li className={isActive && "active"} onClick={toggle}>
+              <a href="/#home">Home</a>
+            </li>
+            <li className={isActive && "active"} onClick={toggle}>
+              <a href="/#Event">Events</a>
+            </li>
+            <li className={isActive && "active"} onClick={toggle}>
+              <a href="/#Visit">Visits</a>
+            </li>
+            <li className={isActive && "active"} onClick={toggle}>
+              <a href="/#start-ups">Startup Initiatives</a>
+            </li>
+            <li className={isActive && "active"} onClick={toggle}>
+              <a href="/team">Our Team</a>
+            </li>
+            <li className={isActive && "active"} onClick={toggle}>
+              <a href="/internship">Internships</a>
+            </li>
+            <li className={isActive && "active"} onClick={toggle}>
+              <a href="/#contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div className="mobile-nav d-lg-none" ref={sidebar}>
+        <button className="mobile-nav-close-icon">
+          <Icon
+            icon="ant-design:close-circle-outlined"
+            color="#09f"
+            width="30"
+            height="30"
+            onClick={sidebarCloseHandler}
+            className="mobile-nav-close-icon"
+          />
+        </button>
+        <a href="index.html" className="logo mr-auto">
+          <img
+            src="https://aitecell.in/assets/img/logo.png"
+            alt="ss"
+            className="img-fluid"
+          />
+        </a>
+        <nav className="mobile-nav-menu">
+          <ul>
+            <li className="primary">
               <a href="#hero">Home</a>
             </li>
-            <li>
-              <a href="#events">Events</a>
+            <li className="primary">
+              <a href="#">Events</a>
             </li>
-            <li>
-              <a href="mentor_connect.html">Mentor Connects</a>
+            <li className="primary">
+              <a href="#">Mentor Connects</a>
             </li>
-            <li>
+            <li className="primary">
               <a href="#start-ups">Startup Initiatives</a>
             </li>
-            <li>
-              <a href="our_team.html">Our Team</a>
+            <li className="primary">
+              <a href="#">Our Team</a>
             </li>
-            <li>
-              <a href="internship.html">Internships</a>
+            <li className="primary">
+              <a href="#">Internships</a>
             </li>
-            <li>
+            <li className="primary">
               <a href="#contact">Contact</a>
             </li>
           </ul>

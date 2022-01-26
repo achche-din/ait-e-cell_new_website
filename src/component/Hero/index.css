@@ -2,11 +2,12 @@
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  background: url("../../assets/portfolio/pawan.png") top center;
+  background: url("../../assets/portfolio/pawan.png");
   background-size: cover;
   position: relative;
+  background-repeat: no-repeat;
 }
 
 #hero:before {

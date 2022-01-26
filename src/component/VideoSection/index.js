@@ -1,42 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
 import "./index.css";
 
 export const VideoSection = () => {
+  const [videos, setVideos] = useState([]);
+  async function fetchVideoJSON() {
+    const response = await fetch(
+      "https://aitecell.herokuapp.com/api/videos/?format=json"
+    );
+    const videos = await response.json();
+    setVideos(videos);
+  }
+  useEffect(() => {
+    fetchVideoJSON();
+  }, []);
   return (
-    <section class="text-center " style={{ backgroundColor: "#fdfd96" }}>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-6 d-flex justify-content-center align-items-stretch mb-5 mb-lg-3 mx-auto">
-            <iframe
-              width="514"
-              height="289"
-              src="https://www.youtube.com/embed/pDYsFS3a6eA"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div class="col-md-6 col-lg-6 d-flex justify-content-center align-items-stretch mb-5 mb-lg-3 mx-auto">
-            <iframe
-              width="514"
-              height="289"
-              src="https://www.youtube.com/embed/ny_piQ3jgSI"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div class="col-md-6 col-lg-6 d-flex justify-content-center align-items-stretch mb-5 mb-lg-3 mx-auto">
-            <iframe
-              width="514"
-              height="289"
-              src="https://www.youtube.com/embed/vf0EG3_EGLo?t=747"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
+    <section className=" " style={{ backgroundColor: "#fdfd96" }}>
+      <div className="container">
+        <div className="row " style={{ width: "100%" }}>
+          {videos.map((item) => {
+            const { id, title, description, video_link } = item;
+            return (
+              <div
+                className="col-md-6 col-lg-6 col-xl-4 d-flex justify-content-center  mb-5 mb-lg-3 mx-auto"
+                key={id}
+              >
+                <iframe
+                  width="100%"
+                  height="289"
+                  src={video_link}
+                  frameborder="0"
+                  // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  // allowfullscreen
+                  title={title}
+                ></iframe>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

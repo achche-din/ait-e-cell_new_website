@@ -1,0 +1,18 @@
+a {
+  color: whitesmoke;
+  text-decoration: none;
+}
+nav ul li a:hover {
+  color: #f2f055;
+  font-size: 1.05rem;
+}
+.page-section {
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+}
+.apply_btn:hover {
+  color: white;
+  font-size: 1.05rem;
+}
+.single-internship > div {
+  padding: 20px;
+}

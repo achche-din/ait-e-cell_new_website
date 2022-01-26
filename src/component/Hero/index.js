@@ -4,10 +4,10 @@ import "./index.css";
 export const Hero = () => {
   return (
     <section id="hero">
-      <div class="hero-container text-white">
+      <div className="hero-container text-white">
         <img
-          class="mb-2"
-          src="../../assets/img/portfolio/logo-ait.jpg"
+          className="mb-2"
+          src="https://aitecell.in/assets/img/portfolio/logo-ait.jpg"
           alt="AIT E-CELL"
         />
         <h3>
@@ -15,8 +15,9 @@ export const Hero = () => {
         </h3>
         <h1>
           <img
-            src="assets/img/logo.png"
+            src="https://aitecell.in/assets/img/logo.png"
             style={{ width: "70px", height: "70px" }}
+            alt="logo"
           />{" "}
           <span>AIT E-Cell</span>
         </h1>
