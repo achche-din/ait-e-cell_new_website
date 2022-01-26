@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import "./index.css";
 
-export const Events = ({ title }) => {
+export const Events = ({ title, description, quote }) => {
   const [event, setEvent] = useState([]);
   async function fetchEventJSON() {
     const response = await fetch(
@@ -14,12 +14,6 @@ export const Events = ({ title }) => {
         return data.event_type == title;
       })
     );
-    // console.log(
-    //   "title",
-    //   event.filter((data) => {
-    //     return data.event_type == title;
-    //   })
-    // );
   }
   useEffect(() => {
     fetchEventJSON();
@@ -30,6 +24,8 @@ export const Events = ({ title }) => {
         {title && (
           <div className="section-title">
             <h2 className="display-5">{title + "s"}</h2>
+            {description && <h3>{description}</h3>}
+            {title && <p>{quote}</p>}
           </div>
         )}
 

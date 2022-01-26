@@ -120,31 +120,31 @@ export const HomePage = () => {
       <Newsletter />
       <AboutUs />
       <VideoSection />
-      {/* <Events title="Upcoming Events" /> */}
-      <Events title="Event" />
-      <Events title="Visit" />
-      <Events title="Session" />
 
-      <div className="pastEventContainer">
-        <div className="headingPastEvent">
-          <h1>ENTREPRENEURSHIP TRAINING</h1>
-          <p>
-            “Build your own dreams, or someone else will hire you to build
-            theirs.” -- Farrah Gray
-          </p>
-        </div>
-        <Events title="" />
-      </div>
-      <div className="pastEventContainer">
-        <div className="headingPastEvent">
-          <h1>INTERNSHIP PROGRAMS AND MENTOR SUPPORT</h1>
-          <p>
-            “The best way to predict the future is to create it.” - Peter
-            Drucker
-          </p>
-        </div>
-        <Events title="" />
-      </div>
+      {/* <Events title="Upcoming Events" /> */}
+
+      <Events title="Event" description="" quote="" />
+
+      <Events
+        title="Visit"
+        description="Some awesome visits by us"
+        quote="“Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful.” - Albert Schweitzer."
+      />
+
+      <Events title="Session" description="" quote="" />
+
+      <Events
+        title="ENTREPRENEURSHIP TRAINING"
+        description=""
+        quote="“Build your own dreams, or someone else will hire you to build theirs.” - Farrah Gray"
+      />
+
+      <Events
+        title="INTERNSHIP PROGRAMS AND MENTOR SUPPORT"
+        description=""
+        quote="“The best way to predict the future is to create it.” - Peter Drucker"
+      />
+
       <section id="start-ups" className="portfolio services">
         <div
           className="container"

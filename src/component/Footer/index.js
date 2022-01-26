@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 import { Icon } from "@iconify/react";
+
 export const Footer = () => {
   return (
     <>
@@ -125,7 +126,7 @@ export const Footer = () => {
       >
         <div class="container">
           <small class="pre-wrap mx-auto">
-            © 2021-22 All Rights Reserved.{" "}
+            © {new Date().getFullYear()} All Rights Reserved.{" "}
             <a href="https://aitecell.in/">AIT Entrepreneurship Cell</a>{" "}
           </small>
         </div>
