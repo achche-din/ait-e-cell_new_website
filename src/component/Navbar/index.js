@@ -27,6 +27,9 @@ export const Navbar = () => {
         setScrolled(window.pageYOffset > 200)
       );
     }
+    if (window.location.pathname != "/") {
+      setScrolled(true);
+    }
   }, []);
 
   return (

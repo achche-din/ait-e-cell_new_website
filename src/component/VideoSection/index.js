@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ReactPlayer from "react-player";
-
 import "./index.css";
 
 export const VideoSection = () => {
