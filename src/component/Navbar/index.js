@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Icon } from "@iconify/react";
+import { BrowserRouter as Router,Route , Link } from "react-router-dom";
 import "./index.css";
-
 export const Navbar = () => {
   const [isActive, setisActive] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -53,31 +53,31 @@ export const Navbar = () => {
           className="menu_icon"
           onClick={sidebarOpenHandler}
         />
-        <nav className="nav-menu d-none d-lg-block">
-          <ul>
-            <li className={isActive && "active"} onClick={toggle}>
-              <a href="/#home">Home</a>
-            </li>
-            <li className={isActive && "active"} onClick={toggle}>
-              <a href="/#Event">Events</a>
-            </li>
-            <li className={isActive && "active"} onClick={toggle}>
-              <a href="/#Visit">Visits</a>
-            </li>
-            <li className={isActive && "active"} onClick={toggle}>
-              <a href="/#start-ups">Startup Initiatives</a>
-            </li>
-            <li className={isActive && "active"} onClick={toggle}>
-              <a href="/team">Our Team</a>
-            </li>
-            <li className={isActive && "active"} onClick={toggle}>
-              <a href="/internship">Internships</a>
-            </li>
-            <li className={isActive && "active"} onClick={toggle}>
-              <a href="/#contact">Contact</a>
-            </li>
-          </ul>
-        </nav>
+          <nav className="nav-menu d-none d-lg-block">
+            <ul>
+              <li className={isActive && "active"} onClick={toggle}>
+                <a href="/#home">Home</a>
+              </li>
+              <li className={isActive && "active"} onClick={toggle}>
+                <a href="/#Event">Events</a>
+              </li>
+              <li className={isActive && "active"} onClick={toggle}>
+                <a href="/#Visit">Visits</a>
+              </li>
+              <li className={isActive && "active"} onClick={toggle}>
+                <a href="/#start-ups">Startup Initiatives</a>
+              </li>
+              <li className={isActive && "active"} onClick={toggle}>
+                <li><Link to="/team">Team</Link></li>
+              </li>
+              <li className={isActive && "active"} onClick={toggle}>
+                <li><Link to="/internship">Internship</Link></li>
+              </li>
+              <li className={isActive && "active"} onClick={toggle}>
+                <a href="/#contact">Contact</a>
+              </li>
+            </ul>
+          </nav>
       </div>
       <div className="mobile-nav d-lg-none" ref={sidebar}>
         <button className="mobile-nav-close-icon">
@@ -98,6 +98,7 @@ export const Navbar = () => {
           />
         </a>
         <nav className="mobile-nav-menu">
+          Router
           <ul>
             <li className="primary">
               <a href="#hero">Home</a>
