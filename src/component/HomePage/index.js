@@ -72,7 +72,7 @@ export const HomePage = () => {
             <div className="container">
               <div className="row d-flex flex-column flex-sm-column flex-md-row">
                 <div className="col-12 col-sm-12 col-md-3 col-lg-2 noti-top">
-                  Latest Updates
+                  <p>Latest Updates</p>
                 </div>
                 <div className="col-12 col-sm-12 col-md-9 col-lg-10 ">
                   <marquee behavior="scroll" direction="left">
@@ -188,7 +188,7 @@ export const HomePage = () => {
         </div>
       </section>
       <section id="incubation" class="pricing">
-        <div class="container">
+        <div class="container" style={{ display: "flex", flexDirection: "column" }}>
           <div class="section-title">
             <h2>Incubation center Connect</h2>
             <p>
@@ -238,7 +238,11 @@ export const HomePage = () => {
                 passout_year,
               } = item;
               return (
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mx-auto">
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mx-auto" style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}>
                   <div
                     class="card"
                     style={{
@@ -291,7 +295,7 @@ export const HomePage = () => {
             }}
           >
             <div class="col-xl-6 col-md-6 mb-4 mx-auto">
-              <div class="card border-0 shadow ">
+              <div class="card border-0 shadow " style={{ margin: "8px" }}>
                 <h3 class="text-center">Advisors</h3>
                 <div class="card-body ">
                   <ul class="list-group">
@@ -303,7 +307,7 @@ export const HomePage = () => {
                   </ul>
                 </div>
               </div>
-              <div class="card border-0 shadow ">
+              <div class="card border-0 shadow " style={{ margin: "8px" }}>
                 <h3 class="text-center">Faculty in charge</h3>
                 <div class="card-body ">
                   <ul class="list-group">
@@ -313,8 +317,8 @@ export const HomePage = () => {
               </div>
             </div>
 
-            <div class="col-xl-6 col-md-6 mb-4 mx-auto">
-              <div class="card border-0 shadow ">
+            <div class="col-xl-6 col-md-6 mb-4 mx-auto" >
+              <div class="card border-0 shadow " style={{ margin: "8px" }}>
                 <h3 class="text-center">MENTORS</h3>
                 <div class="card-body ">
                   <ul class="list-group">
@@ -330,7 +334,7 @@ export const HomePage = () => {
                 </div>
               </div>
 
-              <div class="card border-0 shadow ">
+              <div class="card border-0 shadow " style={{ margin: "8px" }}>
                 <h3 class="text-center">Faculty Coordinator</h3>
                 <div class="card-body ">
                   <ul class="list-group">
