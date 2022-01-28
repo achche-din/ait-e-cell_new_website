@@ -1,10 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Icon } from "@iconify/react";
-import { BrowserRouter as Router,Route , Link } from "react-router-dom";
 import "./index.css";
 
 export const Navbar = ({ style }) => {
-
   const [isActive, setisActive] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -55,7 +53,6 @@ export const Navbar = ({ style }) => {
           className="menu_icon"
           onClick={sidebarOpenHandler}
         />
-
         <nav className="nav-menu d-none d-lg-block">
           <ul>
             <li className={isActive && "active"} onClick={toggle} >
@@ -81,36 +78,9 @@ export const Navbar = ({ style }) => {
             </li>
           </ul>
         </nav>
-
-          <nav className="nav-menu d-none d-lg-block">
-            <ul>
-              <li className={isActive && "active"} onClick={toggle}>
-                <a href="/#home">Home</a>
-              </li>
-              <li className={isActive && "active"} onClick={toggle}>
-                <a href="/#Event">Events</a>
-              </li>
-              <li className={isActive && "active"} onClick={toggle}>
-                <a href="/#Visit">Visits</a>
-              </li>
-              <li className={isActive && "active"} onClick={toggle}>
-                <a href="/#start-ups">Startup Initiatives</a>
-              </li>
-              <li className={isActive && "active"} onClick={toggle}>
-                <li><Link to="/team">Team</Link></li>
-              </li>
-              <li className={isActive && "active"} onClick={toggle}>
-                <li><Link to="/internship">Internship</Link></li>
-              </li>
-              <li className={isActive && "active"} onClick={toggle}>
-                <a href="/#contact">Contact</a>
-              </li>
-            </ul>
-          </nav>
-
       </div>
       <div className="mobile-nav d-lg-none" ref={sidebar}>
-        <button className="mobile-nav-close-icon" >
+        <button className="mobile-nav-close-icon">
           <Icon
             icon="ant-design:close-circle-outlined"
             color="#09f"
@@ -128,7 +98,6 @@ export const Navbar = ({ style }) => {
           />
         </a>
         <nav className="mobile-nav-menu">
-          Router
           <ul>
             <li className="primary">
               <a href="/#hero" onClick={sidebarCloseHandler}>Home</a>
