@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Icon } from "@iconify/react";
-import { BrowserRouter as Router,Route , Link } from "react-router-dom";
 import "./index.css";
-export const Navbar = () => {
+
+export const Navbar = ({ style }) => {
   const [isActive, setisActive] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -47,40 +47,40 @@ export const Navbar = () => {
         </a>
         <Icon
           icon="mdi:menu"
-          color="white"
+          color="#09f"
           width="30"
           height="30"
           className="menu_icon"
           onClick={sidebarOpenHandler}
         />
-          <nav className="nav-menu d-none d-lg-block">
-            <ul>
-              <li className={isActive && "active"} onClick={toggle}>
-                <a href="/#home">Home</a>
-              </li>
-              <li className={isActive && "active"} onClick={toggle}>
-                <a href="/#Event">Events</a>
-              </li>
-              <li className={isActive && "active"} onClick={toggle}>
-                <a href="/#Visit">Visits</a>
-              </li>
-              <li className={isActive && "active"} onClick={toggle}>
-                <a href="/#start-ups">Startup Initiatives</a>
-              </li>
-              <li className={isActive && "active"} onClick={toggle}>
-                <li><Link to="/team">Team</Link></li>
-              </li>
-              <li className={isActive && "active"} onClick={toggle}>
-                <li><Link to="/internship">Internship</Link></li>
-              </li>
-              <li className={isActive && "active"} onClick={toggle}>
-                <a href="/#contact">Contact</a>
-              </li>
-            </ul>
-          </nav>
+        <nav className="nav-menu d-none d-lg-block">
+          <ul>
+            <li className={isActive && "active"} onClick={toggle} >
+              <a href="/#home" className={style && "text-dark"} >Home</a>
+            </li>
+            <li className={isActive && "active"} onClick={toggle}>
+              <a href="/#Event" className={style && "text-dark"} >Events</a>
+            </li>
+            <li className={isActive && "active"} onClick={toggle}>
+              <a href="/#Visit" className={style && "text-dark"} >Visits</a>
+            </li>
+            <li className={isActive && "active"} onClick={toggle}>
+              <a href="/#start-ups" className={style && "text-dark"} >Startup Initiatives</a>
+            </li>
+            <li className={isActive && "active"} onClick={toggle}>
+              <a href="/team" className={style && "text-dark"} >Our Team</a>
+            </li>
+            <li className={isActive && "active"} onClick={toggle}>
+              <a href="/internship" className={style && "text-dark"} >Internships</a>
+            </li>
+            <li className={isActive && "active"} onClick={toggle}>
+              <a href="/#contact" className={style && "text-dark"} >Contact</a>
+            </li>
+          </ul>
+        </nav>
       </div>
       <div className="mobile-nav d-lg-none" ref={sidebar}>
-        <button className="mobile-nav-close-icon" >
+        <button className="mobile-nav-close-icon">
           <Icon
             icon="ant-design:close-circle-outlined"
             color="#09f"
@@ -98,28 +98,27 @@ export const Navbar = () => {
           />
         </a>
         <nav className="mobile-nav-menu">
-          Router
           <ul>
             <li className="primary">
-              <a href="#hero">Home</a>
+              <a href="/#hero" onClick={sidebarCloseHandler}>Home</a>
             </li>
             <li className="primary">
-              <a href="#">Events</a>
+              <a href="/#Event" onClick={sidebarCloseHandler}>Events</a>
+            </li>
+            {/* <li className="primary">
+              <a href="#" onClick={sidebarCloseHandler}>Mentor Connects</a>
+            </li> */}
+            <li className="primary">
+              <a href="/#start-ups" onClick={sidebarCloseHandler}>Startup Initiatives</a>
             </li>
             <li className="primary">
-              <a href="#">Mentor Connects</a>
+              <a href="/team" onClick={sidebarCloseHandler}>Our Team</a>
             </li>
             <li className="primary">
-              <a href="#start-ups">Startup Initiatives</a>
+              <a href="/internship" onClick={sidebarCloseHandler}>Internships</a>
             </li>
             <li className="primary">
-              <a href="#">Our Team</a>
-            </li>
-            <li className="primary">
-              <a href="#">Internships</a>
-            </li>
-            <li className="primary">
-              <a href="#contact">Contact</a>
+              <a href="/#contact" onClick={sidebarCloseHandler}>Contact</a>
             </li>
           </ul>
         </nav>
