@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate} from "react-router-dom";
 
-import { Navbar } from "./component/Navbar";
+import { Navbar } from "./component/Navbar/index";
+
 
 import { mainRoute } from "./routes";
 
@@ -48,6 +49,7 @@ function App() {
         })}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+     
     </>
   );
   // }

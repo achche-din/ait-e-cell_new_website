@@ -2,8 +2,8 @@
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
-  max-width: 100%;
   /* width: 100vw; */
+  max-width: 100%;
   height: 100vh;
   background: url("../../assets/portfolio/pawan.png");
   background-size: cover;
