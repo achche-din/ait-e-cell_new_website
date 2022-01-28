@@ -80,7 +80,7 @@ export const Navbar = () => {
           </nav>
       </div>
       <div className="mobile-nav d-lg-none" ref={sidebar}>
-        <button className="mobile-nav-close-icon">
+        <button className="mobile-nav-close-icon" >
           <Icon
             icon="ant-design:close-circle-outlined"
             color="#09f"
