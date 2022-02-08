@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import parse from "html-react-parser";
 
 import "./index.css";
 import { Icon } from "@iconify/react";
@@ -18,9 +19,11 @@ export const InternshipPage = () => {
   useEffect(() => {
     fetchAlumniJSON();
   }, []);
+  const style = true;
+
   return (
     <>
-      <Navbar />
+      <Navbar style={style} />
       <section class="page-section" id="our_team">
         <div class="section-title mt-5">
           <h2 class="display-5">Internships Opportunities</h2>
@@ -50,7 +53,7 @@ export const InternshipPage = () => {
                       {image && (
                         <img className="img-fluid" src={image} alt={title} />
                       )}
-                      <p>{description}</p>
+                      <p>{parse(description)}</p>
                       <button class="btn btn-primary mb-2 ">
                         {" "}
                         <a href={apply_link} class="apply_btn">
@@ -58,13 +61,24 @@ export const InternshipPage = () => {
                         </a>
                       </button>
                       <p>
-                        Deadline : <strong> {deadline}</strong>{" "}
+                        Deadline :{" "}
+                        <strong>
+                          {" "}
+                          {deadline &&
+                            new Date(deadline).toLocaleDateString("en-GB", {
+                              weekday: "long",
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            })}
+                        </strong>{" "}
                       </p>
+                      {"Company Link : "}
                       {company_link && (
-                        <p>
-                          Company Link : <strong> {company_link}</strong>{" "}
-                        </p>
-                      )}
+                        <a href={company_link}>
+                          {company_link}
+                        </a>
+                      )}{" "}
                     </div>
                   </div>
                 </div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Navbar } from "../Navbar/index";
 import { Footer } from "../Footer";
 
 import { TeamCard } from "./TeamCard";
@@ -23,8 +24,12 @@ export const TeamPage = () => {
   useEffect(() => {
     fetchTeamsJSON();
   }, []);
+
+  const style = true;
   return (
+  
     <div>
+      <Navbar style={style}/>
       <div class="section-title " style={{ marginTop: "8rem" }}>
         <h2 class="display-5">Our Team</h2>
       </div>

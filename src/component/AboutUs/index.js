@@ -6,7 +6,7 @@ export const AboutUs = () => {
     <section id="about" class="about">
       <div class="container">
         <div class="section-title">
-          <h3>
+          <h3 style={{margin: "12px"}}>
             Learn More <span>About Us</span>
           </h3>
         </div>

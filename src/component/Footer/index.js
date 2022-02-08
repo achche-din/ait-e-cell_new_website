@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 import { Icon } from "@iconify/react";
+
 export const Footer = () => {
   return (
     <>
@@ -11,7 +12,7 @@ export const Footer = () => {
               <div class="col-lg-4 mb-5 mb-lg-0">
                 <h4 class="mb-4">LOCATION</h4>
                 <p class="pre-wrap lead mb-0">
-                  Army Institute of Technology, Pune Dighi HIlls Pune 411015
+                  Army Institute of Technology, Pune Dighi Hills Pune 411015
                 </p>
               </div>
 
@@ -19,12 +20,16 @@ export const Footer = () => {
                 <h4 class="mb-4">AROUND THE WEB</h4>
                 <div className="d-flex">
                   <a
-                    class="btn btn-outline-light btn-social mx-1  "
+                    class="btn btn-outline-light btn-social social-links mx-1"
                     href="https://www.facebook.com/groups/aitecell"
                     style={{
                       background: "#2267cf",
                       borderRadius: "100%",
                       display: "flex",
+
+                      "&:hover": {
+                        background: "white",
+                        }
                     }}
                   >
                     <Icon
@@ -36,7 +41,7 @@ export const Footer = () => {
                     />
                   </a>
                   <a
-                    class="btn btn-outline-light btn-social mx-1"
+                    class="btn btn-outline-light btn-social mx-1 social-links"
                     href="https://www.instagram.com/ecell_ait/"
                     style={{
                       background: "#2267cf",
@@ -52,7 +57,7 @@ export const Footer = () => {
                     />
                   </a>
                   <a
-                    class="btn btn-outline-light btn-social mx-1"
+                    class="btn btn-outline-light btn-social mx-1 social-links"
                     href="https://www.linkedin.com/"
                     style={{
                       background: "#2267cf",
@@ -68,7 +73,7 @@ export const Footer = () => {
                     />
                   </a>
                   <a
-                    class="btn btn-outline-light btn-social mx-1"
+                    class="btn btn-outline-light btn-social mx-1 social-links"
                     href="https://www.youtube.com/channel/UCSi5zU5q37iqqlny7djRbGA"
                     style={{
                       background: "#2267cf",
@@ -125,7 +130,7 @@ export const Footer = () => {
       >
         <div class="container">
           <small class="pre-wrap mx-auto">
-            © 2021-22 All Rights Reserved.{" "}
+            © {new Date().getFullYear()} All Rights Reserved.{" "}
             <a href="https://aitecell.in/">AIT Entrepreneurship Cell</a>{" "}
           </small>
         </div>
