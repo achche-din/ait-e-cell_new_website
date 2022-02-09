@@ -4,20 +4,20 @@ import "./index.css";
 export const Newsletter = () => {
   return (
     <section
-      class="services newletter"
+      className="services newletter"
       id="solution"
       style={{ backgroundColor: "#f1c50e" }}
     >
-      <div class="container solution-event d-flex   ">
-        <div class="row">
-          <div class="col-lg-7 bg-white py-2 col-md-12 ">
-            <hr class="hr-warning" />
-            <div class="container-heading py-4">
+      <div className="container solution-event d-flex   ">
+        <div className="row">
+          <div className="col-lg-7 bg-white py-2 col-md-12 ">
+            <hr className="hr-warning" />
+            <div className="container-heading py-4">
               <h2>Udyamita</h2>
             </div>
-            <div class="row">
-              <div class="col-12 col-lg-12 col-md-12">
-                <p class="text-dark">
+            <div className="row">
+              <div className="col-12 col-lg-12 col-md-12">
+                <p className="text-dark">
                   We the Innovation and entrepreneurship cell of Army Institute
                   Of Technology are delighted to present our very first
                   newsletter "Udyamita"
@@ -40,7 +40,7 @@ export const Newsletter = () => {
                   crescendo of innovation, out of the box thinking and
                   entrepreneurship
                 </p>
-                <button type="button" class="btn btn-outline-warning my-2">
+                <button type="button" className="btn btn-outline-warning my-2">
                   <a
                     href="../../assets/ECell newsletter.pdf"
                     style={{ textDecoration: "none" }}
@@ -51,12 +51,12 @@ export const Newsletter = () => {
               </div>
             </div>
           </div>
-          <div class="col-lg-5 col-md-6 py-md-3 mx-md-auto">
-            <div class="img-container ">
+          <div className="col-lg-5 col-md-6 py-md-3 mx-md-auto">
+            <div className="img-container ">
               <img
                 src="https://aitecell.in/assets/img/newletter_image.png"
                 alt="solutions"
-                class=" img-thumbnail image_event"
+                className=" img-thumbnail image_event"
               />
             </div>
           </div>

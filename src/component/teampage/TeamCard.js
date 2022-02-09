@@ -18,7 +18,7 @@ export const TeamCard = ({
           </div>
           <div className="socials">
             <a
-              class="btn btn-outline-light btn-social mx-1"
+              className="btn btn-outline-light btn-social mx-1"
               href="https://www.instagram.com/ecell_ait/"
               style={{
                 background: "#2267cf",
@@ -34,7 +34,7 @@ export const TeamCard = ({
               />
             </a>
             <a
-              class="btn btn-outline-light btn-social mx-1"
+              className="btn btn-outline-light btn-social mx-1"
               href="https://www.linkedin.com/"
               style={{
                 background: "#2267cf",

@@ -1,13 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
-import "./index.css";
 import { BrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import App from "./App";
+import "./index.css";
+
+const queryClient = new QueryClient();
+
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <QueryClientProvider client={queryClient}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </QueryClientProvider>,
   document.getElementsByTagName("body")[0]
 );

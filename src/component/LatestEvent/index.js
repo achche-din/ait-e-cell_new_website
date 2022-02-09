@@ -4,9 +4,9 @@ import "./index.css";
 export const Hero = () => {
   return (
     <section id="hero">
-      <div class="hero-container text-white">
+      <div className="hero-container text-white">
         <img
-          class="mb-2"
+          className="mb-2"
           src="../../assets/img/portfolio/logo-ait.jpg"
           alt="AIT E-CELL"
         />

@@ -1,39 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-
 import { Navbar } from "./component/Navbar";
-
 import { mainRoute } from "./routes";
+import { useData } from "./contexts/DataContext";
+import { DataProvider } from "./contexts/DataContext";
 
 import "./App.css";
 
 function App() {
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [data, setData] = useState([]);
+  const { data, isLoading, error } = useData();
 
-  // useEffect(() => {
-  //   fetch("https://aitecell.herokuapp.com/api/eventtypes/")
-  //     .then((res) => res.json())
-  //     .then(
-  //       (result) => {
-  //         setIsLoaded(true);
-  //         setData(result);
-  //       },
-  //       (error) => {
-  //         setIsLoaded(true);
-  //         setError(error);
-  //       }
-  //     );
-  // }, []);
+  if (isLoading) {
+    console.log("isLoading", isLoading);
+    return <div>Loading...</div>;
+  }
+  if (error) {
+    console.log("error", error);
+    return <div>Error: {error.message}</div>;
+  }
 
-  // if (error) {
-  //   return <div>Error: {error.message}</div>;
-  // } else if (!isLoaded) {
-  //   return <div>Loading...</div>;
-  // } else {
   return (
-    <>
+    <DataProvider>
+      {" "}
       <Navbar />
       <Routes>
         {mainRoute.map((route, index) => {
@@ -48,7 +36,7 @@ function App() {
         })}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-    </>
+    </DataProvider>
   );
   // }
 }

@@ -27,11 +27,10 @@ export const TeamPage = () => {
 
   const style = true;
   return (
-  
     <div>
-      <Navbar style={style}/>
-      <div class="section-title " style={{ marginTop: "8rem" }}>
-        <h2 class="display-5">Our Team</h2>
+      <Navbar style={style} />
+      <div className="section-title " style={{ marginTop: "8rem" }}>
+        <h2 className="display-5">Our Team</h2>
       </div>
       {!isLoading ? (
         <div className="card-wrapper">

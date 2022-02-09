@@ -24,12 +24,12 @@ export const InternshipPage = () => {
   return (
     <>
       <Navbar style={style} />
-      <section class="page-section" id="our_team">
-        <div class="section-title mt-5">
-          <h2 class="display-5">Internships Opportunities</h2>
+      <section className="page-section" id="our_team">
+        <div className="section-title mt-5">
+          <h2 className="display-5">Internships Opportunities</h2>
         </div>
 
-        <div class="container m-t-110">
+        <div className="container m-t-110">
           <div className="row">
             {internship.map((item) => {
               const {
@@ -43,20 +43,20 @@ export const InternshipPage = () => {
               } = item;
               return (
                 <div
-                  class="col-xl-6 col-md-12 mx-auto mb-4 single-internship"
+                  className="col-xl-6 col-md-12 mx-auto mb-4 single-internship"
                   key={id}
                 >
-                  <div class="card border-0 shadow ">
-                    <h3 class="text-center">{title}</h3>
+                  <div className="card border-0 shadow ">
+                    <h3 className="text-center">{title}</h3>
 
-                    <div class="card-body ">
+                    <div className="card-body ">
                       {image && (
                         <img className="img-fluid" src={image} alt={title} />
                       )}
                       <p>{parse(description)}</p>
-                      <button class="btn btn-primary mb-2 ">
+                      <button className="btn btn-primary mb-2 ">
                         {" "}
-                        <a href={apply_link} class="apply_btn">
+                        <a href={apply_link} className="apply_btn">
                           Apply here
                         </a>
                       </button>
@@ -75,9 +75,7 @@ export const InternshipPage = () => {
                       </p>
                       {"Company Link : "}
                       {company_link && (
-                        <a href={company_link}>
-                          {company_link}
-                        </a>
+                        <a href={company_link}>{company_link}</a>
                       )}{" "}
                     </div>
                   </div>

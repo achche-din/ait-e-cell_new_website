@@ -187,9 +187,9 @@ export const HomePage = () => {
           </div>
         </div>
       </section>
-      <section id="incubation" class="pricing">
-        <div class="container" style={{ display: "flex", flexDirection: "column" }}>
-          <div class="section-title">
+      <section id="incubation" className="pricing">
+        <div className="container" style={{ display: "flex", flexDirection: "column" }}>
+          <div className="section-title">
             <h2>Incubation center Connect</h2>
             <p>
               All these centers provide active support to aspiring students of
@@ -197,18 +197,18 @@ export const HomePage = () => {
             </p>
           </div>
 
-          <div class="row">
+          <div className="row">
             {collaboration.map((item) => {
               const { id, title, description, image, link } = item;
               return (
-                <div class="col-lg-4 col-md-6 mt-4 mt-lg-3 mx-auto " key={id}>
-                  <div class="box">
+                <div className="col-lg-4 col-md-6 mt-4 mt-lg-3 mx-auto " key={id}>
+                  <div className="box">
                     <h3> {title}</h3>
                     <p style={{ lineHeight: "1.8rem" }}>{description}</p>
-                    <div class="btn-wrap">
+                    <div className="btn-wrap">
                       <a
                         href={link}
-                        class="btn-buy "
+                        className="btn-buy "
                         style={{ textDecoration: "none" }}
                       >
                         Visit website
@@ -221,12 +221,12 @@ export const HomePage = () => {
           </div>
         </div>
       </section>
-      <section id="alumni" class="services">
-        <div class="container">
-          <div class="section-title">
-            <h2 class="display-5">Alumni Entrepreneurs</h2>
+      <section id="alumni" className="services">
+        <div className="container">
+          <div className="section-title">
+            <h2 className="display-5">Alumni Entrepreneurs</h2>
           </div>
-          <div class="row d-flex flex-row mx-auto" style={{ width: "100%" }}>
+          <div className="row d-flex flex-row mx-auto" style={{ width: "100%" }}>
             {alumni.map((item) => {
               const {
                 id,
@@ -238,13 +238,13 @@ export const HomePage = () => {
                 passout_year,
               } = item;
               return (
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mx-auto" style={{
+                <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 mx-auto" style={{
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
                 }}>
                   <div
-                    class="card"
+                    className="card"
                     style={{
                       width: "250px",
                       height: "430px",
@@ -252,16 +252,16 @@ export const HomePage = () => {
                     }}
                   >
                     <img
-                      class="card-img-top "
+                      className="card-img-top "
                       src={image}
                       alt="Card "
                       style={{ width: "100%" }}
                     />
-                    <div class="card-body">
-                      <h4 class="card-title"> {name}</h4>
-                      <p class="card-text"> {designation} </p>
+                    <div className="card-body">
+                      <h4 className="card-title"> {name}</h4>
+                      <p className="card-text"> {designation} </p>
                       {social_links && (
-                        <a href={social_links} class="btn btn-primary">
+                        <a href={social_links} className="btn btn-primary">
                           See Profile
                         </a>
                       )}
@@ -275,7 +275,7 @@ export const HomePage = () => {
         </div>
       </section>
       <section
-        class="page-section"
+        className="page-section"
         id="mentor "
         style={{
           backgroundImage: "linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%)",
@@ -283,49 +283,49 @@ export const HomePage = () => {
       >
         <br />
 
-        <div class="section-title">
-          <h2 class="display-5">Our Mentors</h2>
+        <div className="section-title">
+          <h2 className="display-5">Our Mentors</h2>
         </div>
-        <div class="container m-t-110 mx-auto">
+        <div className="container m-t-110 mx-auto">
           <div
-            class="row  "
+            className="row  "
             style={{
               justifyContent: "space-between",
               width: "100%",
             }}
           >
-            <div class="col-xl-6 col-md-6 mb-4 mx-auto">
-              <div class="card border-0 shadow " style={{ margin: "8px" }}>
-                <h3 class="text-center">Advisors</h3>
-                <div class="card-body ">
-                  <ul class="list-group">
-                    <li class="list-group-item">Brig Abhay Bhat, Director</li>
-                    <li class="list-group-item">Dr. B. P. Patil, Principal</li>
-                    <li class="list-group-item">
+            <div className="col-xl-6 col-md-6 mb-4 mx-auto">
+              <div className="card border-0 shadow " style={{ margin: "8px" }}>
+                <h3 className="text-center">Advisors</h3>
+                <div className="card-body ">
+                  <ul className="list-group">
+                    <li className="list-group-item">Brig Abhay Bhat, Director</li>
+                    <li className="list-group-item">Dr. B. P. Patil, Principal</li>
+                    <li className="list-group-item">
                       Dr Mrs. Sangeeta Jadhav, President IIC
                     </li>
                   </ul>
                 </div>
               </div>
-              <div class="card border-0 shadow " style={{ margin: "8px" }}>
-                <h3 class="text-center">Faculty in charge</h3>
-                <div class="card-body ">
-                  <ul class="list-group">
-                    <li class="list-group-item">Dr. Shraddha Oza </li>
+              <div className="card border-0 shadow " style={{ margin: "8px" }}>
+                <h3 className="text-center">Faculty in charge</h3>
+                <div className="card-body ">
+                  <ul className="list-group">
+                    <li className="list-group-item">Dr. Shraddha Oza </li>
                   </ul>
                 </div>
               </div>
             </div>
 
-            <div class="col-xl-6 col-md-6 mb-4 mx-auto" >
-              <div class="card border-0 shadow " style={{ margin: "8px" }}>
-                <h3 class="text-center">MENTORS</h3>
-                <div class="card-body ">
-                  <ul class="list-group">
-                    <li class="list-group-item">
+            <div className="col-xl-6 col-md-6 mb-4 mx-auto" >
+              <div className="card border-0 shadow " style={{ margin: "8px" }}>
+                <h3 className="text-center">MENTORS</h3>
+                <div className="card-body ">
+                  <ul className="list-group">
+                    <li className="list-group-item">
                       Mr Pawan Yadav, Founder, Digital Persistent
                     </li>
-                    <li class="list-group-item">
+                    <li className="list-group-item">
                       Mr Abhijeet Deogirikar, Founder,Director CopperCloud
                       Technologies
                     </li>
@@ -334,11 +334,11 @@ export const HomePage = () => {
                 </div>
               </div>
 
-              <div class="card border-0 shadow " style={{ margin: "8px" }}>
-                <h3 class="text-center">Faculty Coordinator</h3>
-                <div class="card-body ">
-                  <ul class="list-group">
-                    <li class="list-group-item">Prof. Geeta Patil</li>
+              <div className="card border-0 shadow " style={{ margin: "8px" }}>
+                <h3 className="text-center">Faculty Coordinator</h3>
+                <div className="card-body ">
+                  <ul className="list-group">
+                    <li className="list-group-item">Prof. Geeta Patil</li>
                   </ul>
                 </div>
               </div>
@@ -348,14 +348,14 @@ export const HomePage = () => {
       </section>
 
       <section id="contact">
-        <div class="container">
-          <div class="section-title">
+        <div className="container">
+          <div className="section-title">
             <h2>Contact</h2>
           </div>
-          <div class="row justify-content-center">
-            <div class="col-lg-6 col-6">
-              <div class="d-flex flex-column align-items-center">
-                <div class="icon-contact mb-3">
+          <div className="row justify-content-center">
+            <div className="col-lg-6 col-6">
+              <div className="d-flex flex-column align-items-center">
+                <div className="icon-contact mb-3">
                   <Icon
                     icon="carbon:email"
                     color="white"
@@ -363,9 +363,9 @@ export const HomePage = () => {
                     height="40"
                   />
                 </div>
-                <div class="text-dark">Email</div>
+                <div className="text-dark">Email</div>
 
-                <div class="lead font-weight-bold">ecell@aitpune.edu.in</div>
+                <div className="lead font-weight-bold">ecell@aitpune.edu.in</div>
               </div>
             </div>
           </div>

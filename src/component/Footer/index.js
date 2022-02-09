@@ -5,22 +5,22 @@ import { Icon } from "@iconify/react";
 export const Footer = () => {
   return (
     <>
-      <footer id="footer" class="footer">
-        <div class="footer-top">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-4 mb-5 mb-lg-0">
-                <h4 class="mb-4">LOCATION</h4>
-                <p class="pre-wrap lead mb-0">
+      <footer id="footer" className="footer">
+        <div className="footer-top">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-4 mb-5 mb-lg-0">
+                <h4 className="mb-4">LOCATION</h4>
+                <p className="pre-wrap lead mb-0">
                   Army Institute of Technology, Pune Dighi Hills Pune 411015
                 </p>
               </div>
 
-              <div class="col-lg-4 mb-5 mb-lg-0">
-                <h4 class="mb-4">AROUND THE WEB</h4>
+              <div className="col-lg-4 mb-5 mb-lg-0">
+                <h4 className="mb-4">AROUND THE WEB</h4>
                 <div className="d-flex">
                   <a
-                    class="btn btn-outline-light btn-social social-links mx-1"
+                    className="btn btn-outline-light btn-social social-links mx-1"
                     href="https://www.facebook.com/groups/aitecell"
                     style={{
                       background: "#2267cf",
@@ -29,7 +29,7 @@ export const Footer = () => {
 
                       "&:hover": {
                         background: "white",
-                        }
+                      },
                     }}
                   >
                     <Icon
@@ -41,7 +41,7 @@ export const Footer = () => {
                     />
                   </a>
                   <a
-                    class="btn btn-outline-light btn-social mx-1 social-links"
+                    className="btn btn-outline-light btn-social mx-1 social-links"
                     href="https://www.instagram.com/ecell_ait/"
                     style={{
                       background: "#2267cf",
@@ -57,7 +57,7 @@ export const Footer = () => {
                     />
                   </a>
                   <a
-                    class="btn btn-outline-light btn-social mx-1 social-links"
+                    className="btn btn-outline-light btn-social mx-1 social-links"
                     href="https://www.linkedin.com/"
                     style={{
                       background: "#2267cf",
@@ -73,7 +73,7 @@ export const Footer = () => {
                     />
                   </a>
                   <a
-                    class="btn btn-outline-light btn-social mx-1 social-links"
+                    className="btn btn-outline-light btn-social mx-1 social-links"
                     href="https://www.youtube.com/channel/UCSi5zU5q37iqqlny7djRbGA"
                     style={{
                       background: "#2267cf",
@@ -91,28 +91,28 @@ export const Footer = () => {
                 </div>
               </div>
 
-              <div class="col-lg-4">
-                <h4 class="mb-2">Quick links</h4>
-                <ul class="navbar-nav ml-auto social-links">
-                  <li class="nav-item mx-0 mx-lg-1 ">
+              <div className="col-lg-4">
+                <h4 className="mb-2">Quick links</h4>
+                <ul className="navbar-nav ml-auto social-links">
+                  <li className="nav-item mx-0 mx-lg-1 ">
                     <a
-                      class="nav-link px-1 bottom_link px-lg-3 rounded js-scroll-trigger"
+                      className="nav-link px-1 bottom_link px-lg-3 rounded js-scroll-trigger"
                       href="/#alumni"
                     >
                       Alumni Entrepreneurs
                     </a>
                   </li>
-                  <li class="nav-item mx-0 mx-lg-1">
+                  <li className="nav-item mx-0 mx-lg-1">
                     <a
-                      class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                      className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
                       href="/#incubation"
                     >
                       Incubation Center Connects
                     </a>
                   </li>
-                  <li class="nav-item mx-0 mx-lg-1">
+                  <li className="nav-item mx-0 mx-lg-1">
                     <a
-                      class="nav-link px-1 bottom_link px-lg-3 rounded js-scroll-trigger"
+                      className="nav-link px-1 bottom_link px-lg-3 rounded js-scroll-trigger"
                       href="/#start-ups"
                     >
                       Startup Initiatives
@@ -125,11 +125,11 @@ export const Footer = () => {
         </div>
       </footer>
       <section
-        class="copyright py-4 text-center text-white d-flex justify-content-center"
+        className="copyright py-4 text-center text-white d-flex justify-content-center"
         // style={{ background: "red" }}
       >
-        <div class="container">
-          <small class="pre-wrap mx-auto">
+        <div className="container">
+          <small className="pre-wrap mx-auto">
             © {new Date().getFullYear()} All Rights Reserved.{" "}
             <a href="https://aitecell.in/">AIT Entrepreneurship Cell</a>{" "}
           </small>
