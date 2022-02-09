@@ -2,7 +2,7 @@ import { useQuery } from "react-query";
 import { BACKEND_DATA_QUERY } from "../graphql-query";
 
 export const useDataHooks = () => {
-  const endpoint = "http://127.0.0.1:8000/graphql/";
+  const endpoint = "https://aitecell.herokuapp.com/graphql/";
 
   return useQuery("launches", () => {
     return fetch(endpoint, {
