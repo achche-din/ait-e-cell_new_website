@@ -40,10 +40,13 @@ export const Newsletter = () => {
                   crescendo of innovation, out of the box thinking and
                   entrepreneurship
                 </p>
-                <button type="button" className="btn btn-outline-warning my-2">
+                <button
+                  type="button"
+                  className="btn btn-outline-warning my-2 text-dark"
+                >
                   <a
                     href="../../assets/ECell newsletter.pdf"
-                    style={{ textDecoration: "none" }}
+                    style={{ textDecoration: "none", color: "black" }}
                   >
                     Download Newsletter
                   </a>
