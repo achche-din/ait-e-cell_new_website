@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { useDataHooks } from "../../hooks/useDataHooks";
 
 import "./index.css";
 
 export const Events = ({ title, description, quote }) => {
+  const { data, isLoading, error } = useDataHooks();
+
   const [event, setEvent] = useState([]);
-  async function fetchEventJSON() {
-    const response = await fetch(
-      "https://aitecell.herokuapp.com/api/events/?format=json"
-    );
-    const event = await response.json();
-    setEvent(
-      event.filter((data) => {
-        return data.event_type == title;
-      })
-    );
+  function fetchEventJSON() {
+    let eventData = data.events.filter((data) => {
+      return data.eventType.title === title;
+    });
+    setEvent(eventData);
   }
   useEffect(() => {
     fetchEventJSON();
   }, []);
+
   return (
     <section id={title} className="services events-section">
       <div className="container">
@@ -35,8 +34,8 @@ export const Events = ({ title, description, quote }) => {
               id,
               title,
               description,
-              image_url,
-              meet_url,
+              imageUrl,
+              meetUrl,
               other,
               files_attachment,
               comments,
@@ -49,7 +48,7 @@ export const Events = ({ title, description, quote }) => {
                 <div className="icon-box">
                   <img
                     className="img-fluid mb-2 mb-lg-2"
-                    src={image_url}
+                    src={imageUrl}
                     style={{ height: "250px" }}
                     alt={title}
                   />
@@ -60,7 +59,7 @@ export const Events = ({ title, description, quote }) => {
                   {files_attachment && (
                     <a href={files_attachment}>For more information</a>
                   )}
-                  {meet_url && <a href={meet_url}>For more information</a>}
+                  {meetUrl && <a href={meetUrl}>For more information</a>}
                 </div>
               </div>
             );

@@ -16,5 +16,5 @@ ReactDOM.render(
       <App />
     </BrowserRouter>
   </QueryClientProvider>,
-  document.getElementsByTagName("body")[0]
+  document.getElementById("root")
 );

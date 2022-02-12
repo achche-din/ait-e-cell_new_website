@@ -6,12 +6,6 @@ export const Navbar = ({ style }) => {
   const [isActive, setisActive] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const toggle = (e) => {
-    // setisActive(!isActive);
-    // const dom = e.target.innerT;
-    // dom.style.classList.add("active");
-    // console.log(dom);
-  };
   const sidebar = useRef();
   const sidebarOpenHandler = () => {
     sidebar.current.style.transform = "translateX(100%)";
@@ -55,26 +49,40 @@ export const Navbar = ({ style }) => {
         />
         <nav className="nav-menu d-none d-lg-block">
           <ul>
-            <li className={isActive && "active"} onClick={toggle} >
-              <a href="/#home" className={style && "text-dark"} >Home</a>
+            <li className={isActive && "active"}>
+              <a href="/#home" className={style && "text-dark"}>
+                Home
+              </a>
             </li>
-            <li className={isActive && "active"} onClick={toggle}>
-              <a href="/#Event" className={style && "text-dark"} >Events</a>
+            <li className={isActive && "active"}>
+              <a href="/#Event" className={style && "text-dark"}>
+                Events
+              </a>
             </li>
-            <li className={isActive && "active"} onClick={toggle}>
-              <a href="/#Visit" className={style && "text-dark"} >Visits</a>
+            <li className={isActive && "active"}>
+              <a href="/#Visit" className={style && "text-dark"}>
+                Visits
+              </a>
             </li>
-            <li className={isActive && "active"} onClick={toggle}>
-              <a href="/#start-ups" className={style && "text-dark"} >Startup Initiatives</a>
+            <li className={isActive && "active"}>
+              <a href="/#start-ups" className={style && "text-dark"}>
+                Startup Initiatives
+              </a>
             </li>
-            <li className={isActive && "active"} onClick={toggle}>
-              <a href="/team" className={style && "text-dark"} >Our Team</a>
+            <li className={isActive && "active"}>
+              <a href="/team" className={style && "text-dark"}>
+                Our Team
+              </a>
             </li>
-            <li className={isActive && "active"} onClick={toggle}>
-              <a href="/internship" className={style && "text-dark"} >Internships</a>
+            <li className={isActive && "active"}>
+              <a href="/internship" className={style && "text-dark"}>
+                Internships
+              </a>
             </li>
-            <li className={isActive && "active"} onClick={toggle}>
-              <a href="/#contact" className={style && "text-dark"} >Contact</a>
+            <li className={isActive && "active"}>
+              <a href="/#contact" className={style && "text-dark"}>
+                Contact
+              </a>
             </li>
           </ul>
         </nav>
@@ -100,25 +108,37 @@ export const Navbar = ({ style }) => {
         <nav className="mobile-nav-menu">
           <ul>
             <li className="primary">
-              <a href="/#hero" onClick={sidebarCloseHandler}>Home</a>
+              <a href="/#hero" onClick={sidebarCloseHandler}>
+                Home
+              </a>
             </li>
             <li className="primary">
-              <a href="/#Event" onClick={sidebarCloseHandler}>Events</a>
+              <a href="/#Event" onClick={sidebarCloseHandler}>
+                Events
+              </a>
             </li>
             {/* <li className="primary">
               <a href="#" onClick={sidebarCloseHandler}>Mentor Connects</a>
             </li> */}
             <li className="primary">
-              <a href="/#start-ups" onClick={sidebarCloseHandler}>Startup Initiatives</a>
+              <a href="/#start-ups" onClick={sidebarCloseHandler}>
+                Startup Initiatives
+              </a>
             </li>
             <li className="primary">
-              <a href="/team" onClick={sidebarCloseHandler}>Our Team</a>
+              <a href="/team" onClick={sidebarCloseHandler}>
+                Our Team
+              </a>
             </li>
             <li className="primary">
-              <a href="/internship" onClick={sidebarCloseHandler}>Internships</a>
+              <a href="/internship" onClick={sidebarCloseHandler}>
+                Internships
+              </a>
             </li>
             <li className="primary">
-              <a href="/#contact" onClick={sidebarCloseHandler}>Contact</a>
+              <a href="/#contact" onClick={sidebarCloseHandler}>
+                Contact
+              </a>
             </li>
           </ul>
         </nav>

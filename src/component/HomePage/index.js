@@ -9,49 +9,41 @@ import { VideoSection } from "../VideoSection";
 import { Events } from "../Events";
 import "./index.css";
 import { Icon } from "@iconify/react";
+import { useDataHooks } from "../../hooks/useDataHooks";
+
 export const HomePage = () => {
+  const { data, isLoading, error } = useDataHooks();
+
   const [latestUpdates, setLatestUpdates] = useState([]);
   const [documents, setDocuments] = useState([]);
   const [startups, setStartups] = useState([]);
   const [collaboration, setCollaboration] = useState([]);
   const [alumni, setAlumni] = useState([]);
-  async function fetchUpdatesJSON() {
-    const response = await fetch(
-      "https://aitecell.herokuapp.com/api/latestupdates/?format=json"
-    );
-    const updates = await response.json();
+
+  function fetchUpdatesJSON() {
+    const updates = data.latestupdates;
     setLatestUpdates(updates);
   }
-  async function fetchDocumentsJSON() {
-    const response = await fetch(
-      "https://aitecell.herokuapp.com/api/documents/?format=json"
-    );
-    const documents = await response.json();
+  function fetchDocumentsJSON() {
+    const documents = data.documents;
     setDocuments(
       documents.filter((item) => {
         return item.title != "Udyamita";
       })
     );
   }
-  async function fetchStartupsJSON() {
-    const response = await fetch(
-      "https://aitecell.herokuapp.com/api/startups/"
-    );
-    const startups = await response.json();
+  function fetchStartupsJSON() {
+    const startups = data.startups;
     setStartups(startups);
   }
-  async function fetchCollabarationJSON() {
-    const response = await fetch(
-      "https://aitecell.herokuapp.com/api/collaboration/?format=json"
-    );
-    const collaboration = await response.json();
+  function fetchCollabarationJSON() {
+    const collaboration = data.collaboration;
     setCollaboration(collaboration);
   }
-  async function fetchAlumniJSON() {
-    const response = await fetch(
-      "https://aitecell.herokuapp.com/api/people/alumni_entrepreneur/?format=json"
+  function fetchAlumniJSON() {
+    const alumni = data.people.filter(
+      (item) => item.category[0].title === "Alumni Entrepreneur"
     );
-    const alumni = await response.json();
     setAlumni(alumni);
   }
 
@@ -77,9 +69,13 @@ export const HomePage = () => {
                 <div className="col-12 col-sm-12 col-md-9 col-lg-10 ">
                   <marquee behavior="scroll" direction="left">
                     {latestUpdates.map((item) => {
-                      const { id, title, start_date, end_date, link } = item;
+                      const { id, title, startDate, endData, link } = item;
                       return (
-                        <a key={id} className="noti-con " href={link}>
+                        <a
+                          key={id}
+                          className="noti-con text-primary "
+                          href={link}
+                        >
                           {title}
                           <span className="badge badge-success bg-success mx-2  badge">
                             NEW
@@ -99,11 +95,11 @@ export const HomePage = () => {
           <div className="section-title">
             <div className="row content">
               {documents.map((item) => {
-                const { id, title, document_link, image } = item;
+                const { id, title, documentLink, image } = item;
                 return (
                   <div className="col-lg-4 pt-4 pt-lg-0" key={id}>
                     <a
-                      href={document_link}
+                      href={documentLink}
                       className="btn-learn-more"
                       style={{ textDecoration: "none" }}
                     >
@@ -116,12 +112,58 @@ export const HomePage = () => {
           </div>
         </div>
       </section>
-      {/* <LatestUpdates /> */}
+      <section
+        className="services "
+        id="solution"
+        style={{
+          background: "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)",
+        }}
+      >
+        <div className="container solution-event d-flex   ">
+          <div className="row">
+            <div className="col-lg-7 bg-white py-2 col-md-12  ">
+              <p className="text-dark mt-5 ">
+                <div className="container-heading">
+                  <h2>
+                    “ Stay committed to your decisions, but stay flexible in
+                    your approch.” <br />
+                    -Tony Robbins.
+                  </h2>
+                </div>
+                <br />
+                I&E-Cell is proud to announce that Udchalo, an online service
+                portal founded by AIT Alumni Mr. Ravi Kumar has ✨𝐖𝐨𝐧 𝐍𝐚𝐭𝐢𝐨𝐧𝐚𝐥
+                𝐒𝐭𝐚𝐫𝐭𝐮𝐩 𝐀𝐰𝐚𝐫𝐝 𝟐𝟎𝟐𝟏✨ in the Travel Planning and Discovery
+                Category.
+                <br />
+                <br />
+                We as a part of I&E-Cell respects and appreciate the consistent
+                efforts made by him and all the employees of Udchalo.
+                <br />
+                <br />
+                💫I&E-Cell commends them for bringing great laurels to our
+                college.💫
+                <br />
+                -Heartiest Congratulations from I&E-Cell,Army Institute of
+                Technology,Pune
+              </p>
+            </div>
+
+            <div className="col-lg-5 col-md-6 py-md-3 mx-md-auto">
+              <div className="img-container ">
+                <img
+                  src="https://github.com/achche-din/aitecell-frontend/blob/main/src/assets/4.jpg?raw=true"
+                  alt="ravi kumar, CEO at udchalo"
+                  className=" img-thumbnail image_event"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <Newsletter />
       <AboutUs />
       <VideoSection />
-
-      {/* <Events title="Upcoming Events" /> */}
 
       <Events title="Event" description="" quote="" />
 
@@ -188,7 +230,10 @@ export const HomePage = () => {
         </div>
       </section>
       <section id="incubation" className="pricing">
-        <div className="container" style={{ display: "flex", flexDirection: "column" }}>
+        <div
+          className="container"
+          style={{ display: "flex", flexDirection: "column" }}
+        >
           <div className="section-title">
             <h2>Incubation center Connect</h2>
             <p>
@@ -201,7 +246,10 @@ export const HomePage = () => {
             {collaboration.map((item) => {
               const { id, title, description, image, link } = item;
               return (
-                <div className="col-lg-4 col-md-6 mt-4 mt-lg-3 mx-auto " key={id}>
+                <div
+                  className="col-lg-4 col-md-6 mt-4 mt-lg-3 mx-auto "
+                  key={id}
+                >
                   <div className="box">
                     <h3> {title}</h3>
                     <p style={{ lineHeight: "1.8rem" }}>{description}</p>
@@ -226,7 +274,10 @@ export const HomePage = () => {
           <div className="section-title">
             <h2 className="display-5">Alumni Entrepreneurs</h2>
           </div>
-          <div className="row d-flex flex-row mx-auto" style={{ width: "100%" }}>
+          <div
+            className="row d-flex flex-row mx-auto"
+            style={{ width: "100%" }}
+          >
             {alumni.map((item) => {
               const {
                 id,
@@ -234,15 +285,20 @@ export const HomePage = () => {
                 designation,
                 image,
                 description,
-                social_links,
-                passout_year,
+                socialLinks,
+                batch,
+                isActive,
               } = item;
               return (
-                <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 mx-auto" style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}>
+                <div
+                  className="col-xl-3 col-lg-4 col-md-6 col-sm-6 mx-auto"
+                  key={id}
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <div
                     className="card"
                     style={{
@@ -260,12 +316,12 @@ export const HomePage = () => {
                     <div className="card-body">
                       <h4 className="card-title"> {name}</h4>
                       <p className="card-text"> {designation} </p>
-                      {social_links && (
-                        <a href={social_links} className="btn btn-primary">
+                      {socialLinks && (
+                        <a href={socialLinks} className="btn btn-primary">
                           See Profile
                         </a>
                       )}
-                      <p>Batch: {passout_year}</p>
+                      <p>Batch: {batch}</p>
                     </div>
                   </div>
                 </div>
@@ -299,8 +355,12 @@ export const HomePage = () => {
                 <h3 className="text-center">Advisors</h3>
                 <div className="card-body ">
                   <ul className="list-group">
-                    <li className="list-group-item">Brig Abhay Bhat, Director</li>
-                    <li className="list-group-item">Dr. B. P. Patil, Principal</li>
+                    <li className="list-group-item">
+                      Brig Abhay Bhat, Director
+                    </li>
+                    <li className="list-group-item">
+                      Dr. B. P. Patil, Principal
+                    </li>
                     <li className="list-group-item">
                       Dr Mrs. Sangeeta Jadhav, President IIC
                     </li>
@@ -317,7 +377,7 @@ export const HomePage = () => {
               </div>
             </div>
 
-            <div className="col-xl-6 col-md-6 mb-4 mx-auto" >
+            <div className="col-xl-6 col-md-6 mb-4 mx-auto">
               <div className="card border-0 shadow " style={{ margin: "8px" }}>
                 <h3 className="text-center">MENTORS</h3>
                 <div className="card-body ">
@@ -365,7 +425,9 @@ export const HomePage = () => {
                 </div>
                 <div className="text-dark">Email</div>
 
-                <div className="lead font-weight-bold">ecell@aitpune.edu.in</div>
+                <div className="lead font-weight-bold">
+                  ecell@aitpune.edu.in
+                </div>
               </div>
             </div>
           </div>

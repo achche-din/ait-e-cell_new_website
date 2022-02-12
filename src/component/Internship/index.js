@@ -5,14 +5,15 @@ import "./index.css";
 import { Icon } from "@iconify/react";
 import { Navbar } from "../Navbar/index";
 import { Footer } from "../Footer";
+import { useDataHooks } from "../../hooks/useDataHooks";
 
 export const InternshipPage = () => {
+  const { data, isLoading, error } = useDataHooks();
+
   const [internship, setInternship] = useState([]);
   async function fetchAlumniJSON() {
-    const response = await fetch(
-      "https://aitecell.herokuapp.com/api/internships/?format=json"
-    );
-    const internship = await response.json();
+    const internship = data.internships;
+
     setInternship(internship);
   }
 
@@ -35,10 +36,10 @@ export const InternshipPage = () => {
               const {
                 id,
                 title,
-                company_link,
+                companyLink,
                 description,
                 image,
-                apply_link,
+                applyLink,
                 deadline,
               } = item;
               return (
@@ -56,7 +57,7 @@ export const InternshipPage = () => {
                       <p>{parse(description)}</p>
                       <button className="btn btn-primary mb-2 ">
                         {" "}
-                        <a href={apply_link} className="apply_btn">
+                        <a href={applyLink} className="apply_btn">
                           Apply here
                         </a>
                       </button>
@@ -74,8 +75,8 @@ export const InternshipPage = () => {
                         </strong>{" "}
                       </p>
                       {"Company Link : "}
-                      {company_link && (
-                        <a href={company_link}>{company_link}</a>
+                      {companyLink && (
+                        <a href={companyLink}>{companyLink}</a>
                       )}{" "}
                     </div>
                   </div>

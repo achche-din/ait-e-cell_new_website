@@ -1,24 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Navbar } from "../Navbar/index";
 import { Footer } from "../Footer";
+import { useDataHooks } from "../../hooks/useDataHooks";
 
 import { TeamCard } from "./TeamCard";
 import "./TeamPage.css";
 
 export const TeamPage = () => {
+  const { data, isLoading, error } = useDataHooks();
+
   const [teams, setTeams] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+
   async function fetchTeamsJSON() {
-    const response = await fetch(
-      "https://aitecell.herokuapp.com/api/people/ecell_team/?format=json"
+    const teamsData = data.people.filter(
+      (item) => item.category[0].title === "Team Member"
     );
-    const teams = await response.json();
-    setTeams(
-      teams.filter((data) => {
-        return data.category[0] == "Team Member";
-      })
-    );
-    setIsLoading(false);
+    setTeams(teamsData);
   }
 
   useEffect(() => {
@@ -41,8 +38,8 @@ export const TeamPage = () => {
               designation,
               image,
               description,
-              social_links,
-              passout_year,
+              socialLinks,
+              batch,
             } = item;
             return (
               <TeamCard
@@ -50,8 +47,9 @@ export const TeamPage = () => {
                 name={name}
                 designation={designation}
                 description={description}
-                social_links={social_links}
-                passout_year={passout_year}
+                socialLinks={socialLinks}
+                batch={batch}
+                image={image}
               />
             );
           })}

@@ -11,7 +11,6 @@ function App() {
   const { data, isLoading, error } = useData();
 
   if (isLoading) {
-    console.log("isLoading", isLoading);
     return <div>Loading...</div>;
   }
   if (error) {

@@ -6,8 +6,8 @@ export const TeamCard = ({
   designation,
   image,
   description,
-  social_links,
-  passout_year,
+  socialLinks,
+  batch,
 }) => {
   return (
     <div>

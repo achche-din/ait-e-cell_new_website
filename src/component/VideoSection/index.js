@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
+import { useDataHooks } from "../../hooks/useDataHooks";
 
 export const VideoSection = () => {
+  const { data, isLoading, error } = useDataHooks();
+
   const [videos, setVideos] = useState([]);
 
-  async function fetchVideoJSON() {
-    const response = await fetch(
-      "https://aitecell.herokuapp.com/api/videos/?format=json"
-    );
-    const videos = await response.json();
+  function fetchVideoJSON() {
+    const videos = data.videos;
     setVideos(videos);
   }
 
@@ -22,10 +22,10 @@ export const VideoSection = () => {
         <div className="row " style={{ width: "100%" }}>
           {videos.map((item) => {
             const { id, title, description } = item;
-            var { video_link } = item;
-            video_link = video_link.split("/").pop();
-            video_link = "https://www.youtube.com/embed/"
-              .concat(video_link)
+            var { videoLink } = item;
+            videoLink = videoLink.split("/").pop();
+            videoLink = "https://www.youtube.com/embed/"
+              .concat(videoLink)
               .concat("?enablejsapi=1&origin=http://127.0.0.1:3000");
 
             return (
@@ -36,7 +36,7 @@ export const VideoSection = () => {
                 <iframe
                   width="100%"
                   height="289"
-                  src={video_link}
+                  src={videoLink}
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
