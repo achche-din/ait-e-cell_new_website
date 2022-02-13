@@ -21,3 +21,6 @@
 - [ ] scroll up button, link to copyright ecell name
 - [ ] revamp team section with past batch as well
 - [ ] add a section for headlines to be displayed below the latest updates (create event insance for this and for newsletter as well).
+
+## Backend link
+https://aitecell.herokuapp.com
