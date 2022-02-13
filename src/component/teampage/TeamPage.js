@@ -7,7 +7,7 @@ import { TeamCard } from "./TeamCard";
 import "./TeamPage.css";
 
 export const TeamPage = () => {
-  const { data, isLoading, error } = useDataHooks();
+  const { data, isLoading, } = useDataHooks();
 
   const [teams, setTeams] = useState([]);
 
@@ -21,7 +21,7 @@ export const TeamPage = () => {
 
   useEffect(() => {
     fetchTeamsJSON();
-  }, []);
+  }, [fetchTeamsJSON]);
 
   const style = true;
   return (
@@ -38,7 +38,6 @@ export const TeamPage = () => {
               name,
               designation,
               imageLink,
-              description,
               instagram,
               linkedin,
               batch,

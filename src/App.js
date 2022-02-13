@@ -8,7 +8,7 @@ import { DataProvider } from "./contexts/DataContext";
 import "./App.css";
 
 function App() {
-  const { data, isLoading, error } = useData();
+  const { isLoading, error } = useData();
 
   if (isLoading) {
     return <div>Loading...</div>;

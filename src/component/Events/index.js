@@ -5,13 +5,13 @@ import parse from "html-react-parser";
 import "./index.css";
 
 export const Events = ({ title, description, quote }) => {
-  const { data, isLoading, error } = useDataHooks();
+  const { data } = useDataHooks();
 
   const [event, setEvent] = useState([]);
   function fetchEventJSON() {
     const eventData = data.events.filter((event) => {
       if (event.eventType) {
-        return event.eventType.title == title;
+        return event.eventType.title === title;
       }
     });
     setEvent(eventData);
@@ -55,9 +55,9 @@ export const Events = ({ title, description, quote }) => {
                     alt={title}
                   />
                   <h4 className="title mt-4">{title}</h4>
-                  <br /> {description && <p>{parse(description)}</p>}
-                  {other && <p>{other}</p>}
-                  {comments && <p>{comments}</p>}
+                  <br /> {description && <div>{parse(description)}</div>}
+                  {other && <div>{other}</div>}
+                  {comments && <div>{comments}</div>}
                   {meetUrl && <a href={meetUrl}>For more information</a>}
                 </div>
               </div>

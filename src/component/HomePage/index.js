@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 import { Hero } from "../Hero";
 import { Footer } from "../Footer";
 import { Newsletter } from "../Newsletter";
-import { LatestUpdates } from "../LatestUpdates";
+// import { LatestUpdates } from "../LatestUpdates";
 import { AboutUs } from "../AboutUs";
 import { VideoSection } from "../VideoSection";
 import { Events } from "../Events";
@@ -13,10 +13,10 @@ import parse from "html-react-parser";
 import { useDataHooks } from "../../hooks/useDataHooks";
 
 export const HomePage = () => {
-  const { data, isLoading, error } = useDataHooks();
+  const { data } = useDataHooks();
 
   const [latestUpdates, setLatestUpdates] = useState([]);
-  const [documents, setDocuments] = useState([]);
+  // const [documents, setDocuments] = useState([]);
   const [startups, setStartups] = useState([]);
   const [collaboration, setCollaboration] = useState([]);
   const [alumni, setAlumni] = useState([]);
@@ -25,14 +25,14 @@ export const HomePage = () => {
     const updates = data.latestupdates;
     setLatestUpdates(updates);
   }
-  function fetchDocumentsJSON() {
-    const documents = data.documents;
-    setDocuments(
-      documents.filter((item) => {
-        return item.title != "newsletter";
-      })
-    );
-  }
+  // function fetchDocumentsJSON() {
+  //   const documents = data.documents;
+  //   setDocuments(
+  //     documents.filter((item) => {
+  //       return item.title != "newsletter";
+  //     })
+  //   );
+  // }
   function fetchStartupsJSON() {
     const startups = data.startups;
     setStartups(startups);
@@ -123,7 +123,7 @@ export const HomePage = () => {
         <div className="container solution-event d-flex   ">
           <div className="row">
             <div className="col-lg-7 bg-white py-2 col-md-12  ">
-              <p className="text-dark mt-5 ">
+              <div className="text-dark mt-5 ">
                 <div className="container-heading">
                   <h2>
                     “ Stay committed to your decisions, but stay flexible in
@@ -147,7 +147,7 @@ export const HomePage = () => {
                 <br />
                 -Heartiest Congratulations from I&E-Cell,Army Institute of
                 Technology,Pune
-              </p>
+              </div>
             </div>
 
             <div className="col-lg-5 col-md-6 py-md-3 mx-md-auto">
@@ -221,7 +221,7 @@ export const HomePage = () => {
                       alt={title}
                     />
                     <h4 className="title mt-4">{title}</h4>
-                    <br /> {description && <p>{parse(description)}</p>}
+                    <br /> {description && <div>{parse(description)}</div>}
                     {link && <a href={link}>visit</a>}
                   </div>
                 </div>
@@ -291,11 +291,9 @@ export const HomePage = () => {
                 name,
                 designation,
                 imageLink,
-                description,
                 instagram,
                 linkedin,
                 batch,
-                isActive,
               } = item;
               return (
                 <div

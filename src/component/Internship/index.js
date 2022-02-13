@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import parse from "html-react-parser";
 
 import "./index.css";
-import { Icon } from "@iconify/react";
+// import { Icon } from "@iconify/react";
 import { Navbar } from "../Navbar/index";
 import { Footer } from "../Footer";
 import { useDataHooks } from "../../hooks/useDataHooks";
 
 export const InternshipPage = () => {
-  const { data, isLoading, error } = useDataHooks();
+  const { data } = useDataHooks();
 
   const [internship, setInternship] = useState([]);
   async function fetchAlumniJSON() {
@@ -19,7 +19,7 @@ export const InternshipPage = () => {
 
   useEffect(() => {
     fetchAlumniJSON();
-  }, []);
+  }, [fetchAlumniJSON]);
   const style = true;
 
   return (

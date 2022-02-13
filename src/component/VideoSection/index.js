@@ -3,7 +3,7 @@ import "./index.css";
 import { useDataHooks } from "../../hooks/useDataHooks";
 
 export const VideoSection = () => {
-  const { data, isLoading, error } = useDataHooks();
+  const { data } = useDataHooks();
 
   const [videos, setVideos] = useState([]);
 
@@ -21,12 +21,14 @@ export const VideoSection = () => {
       <div className="container">
         <div className="row " style={{ width: "100%" }}>
           {videos.map((item) => {
-            const { id, title, description } = item;
+            const { id, title } = item;
             var { videoLink } = item;
             videoLink = videoLink.split("/").pop();
             videoLink = "https://www.youtube.com/embed/"
               .concat(videoLink)
-              .concat(`?enablejsapi=1&origin=${process.env.REACT_APP_FRONTEND_ENDPOINT}`);
+              .concat(
+                `?enablejsapi=1&origin=${process.env.REACT_APP_FRONTEND_ENDPOINT}`
+              );
 
             return (
               <div

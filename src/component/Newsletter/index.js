@@ -17,7 +17,7 @@ export const Newsletter = () => {
             </div>
             <div className="row">
               <div className="col-12 col-lg-12 col-md-12">
-                <p className="text-dark">
+                <div className="text-dark">
                   We the Innovation and entrepreneurship cell of Army Institute
                   Of Technology are delighted to present our very first
                   newsletter "Udyamita"
@@ -39,7 +39,7 @@ export const Newsletter = () => {
                   inspire a flame of entrepreneurship that becomes a blazing
                   crescendo of innovation, out of the box thinking and
                   entrepreneurship
-                </p>
+                </div>
                 <button
                   type="button"
                   className="btn btn-outline-warning my-2 text-dark"
