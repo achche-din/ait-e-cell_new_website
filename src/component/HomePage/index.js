@@ -42,10 +42,13 @@ export const HomePage = () => {
     setCollaboration(collaboration);
   }
   function fetchAlumniJSON() {
-    const alumni = data.people.filter(
-      (item) => item.tags[0].title === "alumni-entrepreneur"
-    );
-    setAlumni(alumni);
+    const alumni = data.people.filter((item) => {
+      if (item.tags) {
+        console.log("inside alumni-entrepreneur", item.tags);
+        // return item.tags[0].title === "alumni-entrepreneur";
+      }
+    });
+    // setAlumni(alumni);
   }
 
   useEffect(() => {

@@ -7,21 +7,24 @@ import { TeamCard } from "./TeamCard";
 import "./TeamPage.css";
 
 export const TeamPage = () => {
-  const { data, isLoading, } = useDataHooks();
+  const { data, isLoading } = useDataHooks();
 
   const [teams, setTeams] = useState([]);
 
   async function fetchTeamsJSON() {
     console.log("fetching teams", data);
-    const teamsData = data.people.filter(
-      (item) => item.tags[0].title === "team-member"
-    );
-    setTeams(teamsData);
+    const teamsData = data.people.filter((item) => {
+      if (item.tags) {
+        console.log("inside teams", item.tags);
+        // return item.tags[0].title === "team-member";
+      }
+    });
+    // setTeams(teamsData);
   }
 
   useEffect(() => {
     fetchTeamsJSON();
-  }, [fetchTeamsJSON]);
+  }, []);
 
   const style = true;
   return (
