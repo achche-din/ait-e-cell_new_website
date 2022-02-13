@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./index.css";
 import { useDataHooks } from "../../hooks/useDataHooks";
 
 export const VideoSection = () => {
   const { data } = useDataHooks();
-
   const [videos, setVideos] = useState([]);
 
-  function fetchVideoJSON() {
-    const videos = data.videos;
-    setVideos(videos);
-  }
+  const fetchVideoJSON = useCallback(() => {
+    if (videos.length === 0) {
+      const videos = data.videos;
+      setVideos(videos);
+    }
+  }, [data, videos]);
 
   useEffect(() => {
     fetchVideoJSON();
-  }, []);
+  }, [fetchVideoJSON]);
 
   return (
     <section className=" " style={{ backgroundColor: "#fdfd96" }}>

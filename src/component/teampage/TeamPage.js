@@ -8,11 +8,11 @@ import "./TeamPage.css";
 
 export const TeamPage = () => {
   const { data, isLoading } = useDataHooks();
-
   const [teams, setTeams] = useState([]);
+  const [dataLoaded, setDataLoaded] = useState(true);
 
   const fetchTeamsJSON = useCallback(() => {
-    if (teams.length === 0) {
+    if (dataLoaded) {
       console.log("fetching teams", data);
       const teamsData = data.people.filter((item) => {
         if (item.tags) {
@@ -22,8 +22,9 @@ export const TeamPage = () => {
         return false;
       });
       setTeams(teamsData);
+      setDataLoaded(false);
     }
-  }, [data, teams]);
+  }, [data, dataLoaded, setDataLoaded]);
 
   useEffect(() => {
     fetchTeamsJSON();

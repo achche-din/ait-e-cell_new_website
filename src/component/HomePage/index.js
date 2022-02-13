@@ -1,32 +1,38 @@
 import React, { useCallback, useEffect, useState } from "react";
 // import { Button } from "react-bootstrap";
-import { Hero } from "../Hero";
-import { Footer } from "../Footer";
-import { Newsletter } from "../Newsletter";
-// import { LatestUpdates } from "../LatestUpdates";
-import { AboutUs } from "../AboutUs";
-import { VideoSection } from "../VideoSection";
-import { Events } from "../Events";
-import "./index.css";
-import { Icon } from "@iconify/react";
 // import parse from "html-react-parser";
+import { Icon } from "@iconify/react";
 import { useDataHooks } from "../../hooks/useDataHooks";
+// import { LatestUpdates } from "../LatestUpdates";
+import { VideoSection } from "../VideoSection";
+import { Newsletter } from "../Newsletter";
+import { AboutUs } from "../AboutUs";
+import { Events } from "../Events";
+import { Footer } from "../Footer";
+import { Hero } from "../Hero";
+import "./index.css";
 
 export const HomePage = () => {
   const { data } = useDataHooks();
 
-  const [latestUpdates, setLatestUpdates] = useState([]);
   // const [documents, setDocuments] = useState([]);
+  const [latestUpdates, setLatestUpdates] = useState([]);
   const [startups, setStartups] = useState([]);
   const [collaboration, setCollaboration] = useState([]);
   const [alumni, setAlumni] = useState([]);
 
+  const [latestUpdatesdataLoaded, setLatestUpdatesdataLoaded] = useState(true);
+  const [startupsLoaded, setStartupsLoaded] = useState(true);
+  const [collaborationLoaded, setCollaborationLoaded] = useState(true);
+  const [alumniLoaded, setAlumniLoaded] = useState(true);
+
   const fetchUpdatesJSON = useCallback(() => {
-    if (latestUpdates.length === 0) {
+    if (latestUpdatesdataLoaded) {
       const latestUpdates = data.latestupdates;
       setLatestUpdates(latestUpdates);
+      setLatestUpdatesdataLoaded(false);
     }
-  }, [data, latestUpdates]);
+  }, [data, latestUpdatesdataLoaded, setLatestUpdatesdataLoaded]);
 
   // function fetchDocumentsJSON() {
   //   const documents = data.documents;
@@ -37,21 +43,23 @@ export const HomePage = () => {
   //   );
   // }
   const fetchStartupsJSON = useCallback(() => {
-    if (startups.length === 0) {
+    if (startupsLoaded) {
       const startups = data.startups;
       setStartups(startups);
+      setStartupsLoaded(false);
     }
-  }, [data, startups]);
+  }, [data, startupsLoaded]);
 
   const fetchCollabarationJSON = useCallback(() => {
-    if (collaboration.length === 0) {
+    if (collaborationLoaded) {
       const collaboration = data.collaboration;
       setCollaboration(collaboration);
+      setCollaborationLoaded(false);
     }
-  }, [collaboration, data]);
+  }, [data, collaborationLoaded]);
 
   const fetchAlumniJSON = useCallback(() => {
-    if (alumni.length === 0) {
+    if (alumniLoaded) {
       const alumni = data.people.filter((item) => {
         if (item.tags) {
           console.log("inside alumni-entrepreneur", item.tags);
@@ -60,15 +68,16 @@ export const HomePage = () => {
         return false;
       });
       setAlumni(alumni);
+      setAlumniLoaded(false);
     }
-  }, [data, alumni]);
+  }, [data, alumniLoaded]);
 
   useEffect(() => {
-    fetchUpdatesJSON();
     // fetchDocumentsJSON();
-    fetchStartupsJSON();
-    fetchCollabarationJSON();
     fetchAlumniJSON();
+    fetchCollabarationJSON();
+    fetchStartupsJSON();
+    fetchUpdatesJSON();
   }, [
     fetchAlumniJSON,
     fetchCollabarationJSON,
@@ -186,26 +195,29 @@ export const HomePage = () => {
       <AboutUs />
       <VideoSection />
 
-      <Events title="events" description="" quote="" />
+      <Events title="events" description="" quote="" eventType="events" />
 
       <Events
         title="visits"
         description="Some awesome visits by us"
         quote="“Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful.” - Albert Schweitzer."
+        eventType="visits"
       />
 
-      <Events title="Session" description="" quote="" />
+      <Events title="Session" description="" quote="" eventType="sessions" />
 
       <Events
         title="ENTREPRENEURSHIP TRAINING"
         description=""
         quote="“Build your own dreams, or someone else will hire you to build theirs.” - Farrah Gray"
+        eventType="trainings"
       />
 
       <Events
         title="INTERNSHIP PROGRAMS AND MENTOR SUPPORT"
         description=""
         quote="“The best way to predict the future is to create it.” - Peter Drucker"
+        eventType="internships"
       />
 
       <section id="start-ups" className="portfolio services">

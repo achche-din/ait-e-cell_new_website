@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import parse from "html-react-parser";
 
 import "./index.css";
@@ -9,18 +9,19 @@ import { useDataHooks } from "../../hooks/useDataHooks";
 
 export const InternshipPage = () => {
   const { data } = useDataHooks();
-
   const [internship, setInternship] = useState([]);
-  async function fetchAlumniJSON() {
-    const internship = data.internships;
+  const darkstyle = true;
 
-    setInternship(internship);
-  }
+  const fetchAlumniJSON = useCallback(() => {
+    if (internship.length === 0) {
+      const internship = data.internships;
+      setInternship(internship);
+    }
+  }, [data, internship]);
 
   useEffect(() => {
     fetchAlumniJSON();
   }, [fetchAlumniJSON]);
-  const darkstyle = true;
 
   return (
     <>

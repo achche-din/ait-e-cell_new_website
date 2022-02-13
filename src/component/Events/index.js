@@ -1,24 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useDataHooks } from "../../hooks/useDataHooks";
 import parse from "html-react-parser";
 
 import "./index.css";
 
-export const Events = ({ title, description, quote }) => {
+export const Events = ({ title, description, quote, eventType }) => {
   const { data } = useDataHooks();
-
   const [event, setEvent] = useState([]);
-  function fetchEventJSON() {
-    const eventData = data.events.filter((event) => {
-      if (event.eventType) {
-        return event.eventType.title === title;
-      }
-    });
-    setEvent(eventData);
-  }
+  const [dataLoaded, setDataLoaded] = useState(true);
+
+  const fetchEventJSON = useCallback(() => {
+    if (dataLoaded) {
+      const eventData = data.events.filter((event) => {
+        if (event.eventType) {
+          console.log("inside teams", event.tags);
+          return event.eventType.title === eventType;
+        }
+        return false;
+      });
+      setEvent(eventData);
+      setDataLoaded(false);
+    }
+  }, [data, eventType, dataLoaded, setDataLoaded]);
+
   useEffect(() => {
     fetchEventJSON();
-  }, []);
+  }, [fetchEventJSON]);
 
   return (
     <section id={title} className="services events-section">
