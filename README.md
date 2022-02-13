@@ -1,17 +1,17 @@
 ## Setup local server
 1. rename `.env.sample` to `.env`
-2. run `npm install`
-3. run `npm run start`
+2. run `npm install` - this will install all dependencies
+3. run `npm run start` - this will start the server
 
 
 ## Commands:
 
-`npm run start` - to start the server
+`npm run start` - to start the server  
 `npm run build` - to build the frontend
 
 
 ## APIs
-`https://aitecell.herokuapp.com/api/`
+https://aitecell.herokuapp.com/api/
 
 
 ## TODO
