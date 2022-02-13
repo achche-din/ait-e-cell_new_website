@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import "./index.css";
 
-export const Navbar = ({ style }) => {
+export const Navbar = ({ darkstyle }) => {
   const [isActive] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -50,37 +50,46 @@ export const Navbar = ({ style }) => {
         <nav className="nav-menu d-none d-lg-block">
           <ul>
             <li className={isActive ? "active" : undefined}>
-              <a href="/#home" className={style && "text-dark"}>
+              <a href="/#home" className={darkstyle ? "text-dark" : undefined}>
                 Home
               </a>
             </li>
             <li className={isActive ? "active" : undefined}>
-              <a href="/#Event" className={style && "text-dark"}>
+              <a href="/#Event" className={darkstyle ? "text-dark" : undefined}>
                 Events
               </a>
             </li>
             <li className={isActive ? "active" : undefined}>
-              <a href="/#Visit" className={style && "text-dark"}>
+              <a href="/#Visit" className={darkstyle ? "text-dark" : undefined}>
                 Visits
               </a>
             </li>
             <li className={isActive ? "active" : undefined}>
-              <a href="/#start-ups" className={style && "text-dark"}>
+              <a
+                href="/#start-ups"
+                className={darkstyle ? "text-dark" : undefined}
+              >
                 Startup Initiatives
               </a>
             </li>
             <li className={isActive ? "active" : undefined}>
-              <a href="/team" className={style && "text-dark"}>
+              <a href="/team" className={darkstyle ? "text-dark" : undefined}>
                 Our Team
               </a>
             </li>
             <li className={isActive ? "active" : undefined}>
-              <a href="/internship" className={style && "text-dark"}>
+              <a
+                href="/internship"
+                className={darkstyle ? "text-dark" : undefined}
+              >
                 Internships
               </a>
             </li>
             <li className={isActive ? "active" : undefined}>
-              <a href="/#contact" className={style && "text-dark"}>
+              <a
+                href="/#contact"
+                className={darkstyle ? "text-dark" : undefined}
+              >
                 Contact
               </a>
             </li>

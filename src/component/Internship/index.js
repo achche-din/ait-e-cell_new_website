@@ -20,11 +20,11 @@ export const InternshipPage = () => {
   useEffect(() => {
     fetchAlumniJSON();
   }, [fetchAlumniJSON]);
-  const style = true;
+  const darkstyle = true;
 
   return (
     <>
-      <Navbar style={style} />
+      <Navbar darkstyle={darkstyle} />
       <section className="page-section" id="our_team">
         <div className="section-title mt-5">
           <h2 className="display-5">Internships Opportunities</h2>

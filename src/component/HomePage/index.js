@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 // import { Button } from "react-bootstrap";
 import { Hero } from "../Hero";
 import { Footer } from "../Footer";
@@ -21,10 +21,13 @@ export const HomePage = () => {
   const [collaboration, setCollaboration] = useState([]);
   const [alumni, setAlumni] = useState([]);
 
-  function fetchUpdatesJSON() {
-    const updates = data.latestupdates;
-    setLatestUpdates(updates);
-  }
+  const fetchUpdatesJSON = useCallback(() => {
+    if (latestUpdates.length === 0) {
+      const latestUpdates = data.latestupdates;
+      setLatestUpdates(latestUpdates);
+    }
+  }, [data, latestUpdates]);
+
   // function fetchDocumentsJSON() {
   //   const documents = data.documents;
   //   setDocuments(
@@ -33,23 +36,32 @@ export const HomePage = () => {
   //     })
   //   );
   // }
-  function fetchStartupsJSON() {
-    const startups = data.startups;
-    setStartups(startups);
-  }
-  function fetchCollabarationJSON() {
-    const collaboration = data.collaboration;
-    setCollaboration(collaboration);
-  }
-  function fetchAlumniJSON() {
-    const alumni = data.people.filter((item) => {
-      if (item.tags) {
-        console.log("inside alumni-entrepreneur", item.tags);
-        // return item.tags[0].title === "alumni-entrepreneur";
-      }
-    });
-    // setAlumni(alumni);
-  }
+  const fetchStartupsJSON = useCallback(() => {
+    if (startups.length === 0) {
+      const startups = data.startups;
+      setStartups(startups);
+    }
+  }, [data, startups]);
+
+  const fetchCollabarationJSON = useCallback(() => {
+    if (collaboration.length === 0) {
+      const collaboration = data.collaboration;
+      setCollaboration(collaboration);
+    }
+  }, [collaboration, data]);
+
+  const fetchAlumniJSON = useCallback(() => {
+    if (alumni.length === 0) {
+      const alumni = data.people.filter((item) => {
+        if (item.tags) {
+          console.log("inside alumni-entrepreneur", item.tags);
+          return item.tags.some((tag) => tag.title === "alumni-entrepreneur");
+        }
+        return false;
+      });
+      setAlumni(alumni);
+    }
+  }, [data, alumni]);
 
   useEffect(() => {
     fetchUpdatesJSON();
@@ -57,21 +69,26 @@ export const HomePage = () => {
     fetchStartupsJSON();
     fetchCollabarationJSON();
     fetchAlumniJSON();
-  }, []);
+  }, [
+    fetchAlumniJSON,
+    fetchCollabarationJSON,
+    fetchStartupsJSON,
+    fetchUpdatesJSON,
+  ]);
 
   return (
     <>
       <Hero />
       <main id="main">
         <div className="container">
-          <div className="alert alert-info" role="alert">
+          <div className="alert alert-info m-0 h-2" role="alert">
             <div className="container">
               <div className="row d-flex flex-column flex-sm-column flex-md-row">
                 <div className="col-12 col-sm-12 col-md-3 col-lg-2 noti-top">
                   <p>Latest Updates</p>
                 </div>
                 <div className="col-12 col-sm-12 col-md-9 col-lg-10 ">
-                  <marquee behavior="scroll" direction="left">
+                  <div className="marquee">
                     {latestUpdates.map((item) => {
                       const { id, title, link } = item;
                       return (
@@ -87,7 +104,7 @@ export const HomePage = () => {
                         </a>
                       );
                     })}
-                  </marquee>
+                  </div>
                 </div>
               </div>
             </div>

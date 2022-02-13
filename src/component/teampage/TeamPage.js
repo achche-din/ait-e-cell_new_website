@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Navbar } from "../Navbar/index";
 import { Footer } from "../Footer";
 import { useDataHooks } from "../../hooks/useDataHooks";
@@ -11,25 +11,28 @@ export const TeamPage = () => {
 
   const [teams, setTeams] = useState([]);
 
-  async function fetchTeamsJSON() {
-    console.log("fetching teams", data);
-    const teamsData = data.people.filter((item) => {
-      if (item.tags) {
-        console.log("inside teams", item.tags);
-        // return item.tags[0].title === "team-member";
-      }
-    });
-    // setTeams(teamsData);
-  }
+  const fetchTeamsJSON = useCallback(() => {
+    if (teams.length === 0) {
+      console.log("fetching teams", data);
+      const teamsData = data.people.filter((item) => {
+        if (item.tags) {
+          console.log("inside teams", item.tags);
+          return item.tags.some((tag) => tag.title === "team-member");
+        }
+        return false;
+      });
+      setTeams(teamsData);
+    }
+  }, [data, teams]);
 
   useEffect(() => {
     fetchTeamsJSON();
-  }, []);
+  }, [fetchTeamsJSON]);
 
-  const style = true;
+  const darkstyle = true;
   return (
     <div>
-      <Navbar style={style} />
+      <Navbar darkstyle={darkstyle} />
       <div className="section-title " style={{ marginTop: "8rem" }}>
         <h2 className="display-5">Our Team</h2>
       </div>
