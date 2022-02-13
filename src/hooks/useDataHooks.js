@@ -2,10 +2,13 @@ import { useQuery } from "react-query";
 import { BACKEND_DATA_QUERY } from "../graphql-query";
 
 export const useDataHooks = () => {
-  const endpoint = "https://aitecell.herokuapp.com/graphql/";
+  var endpoint = "http://127.0.0.1:8000/";
+  if (process.env.NODE_ENV === "production") {
+    endpoint = process.env.REACT_APP_DJANGO_API_ENDPOINT;
+  }
 
   return useQuery("launches", () => {
-    return fetch(endpoint, {
+    return fetch(`${endpoint + "graphql/"}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query: BACKEND_DATA_QUERY }),

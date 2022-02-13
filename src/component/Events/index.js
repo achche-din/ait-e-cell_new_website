@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDataHooks } from "../../hooks/useDataHooks";
+import parse from "html-react-parser";
 
 import "./index.css";
 
@@ -8,8 +9,10 @@ export const Events = ({ title, description, quote }) => {
 
   const [event, setEvent] = useState([]);
   function fetchEventJSON() {
-    let eventData = data.events.filter((data) => {
-      return data.eventType.title === title;
+    const eventData = data.events.filter((event) => {
+      if (event.eventType) {
+        return event.eventType.title == title;
+      }
     });
     setEvent(eventData);
   }
@@ -37,7 +40,6 @@ export const Events = ({ title, description, quote }) => {
               imageUrl,
               meetUrl,
               other,
-              files_attachment,
               comments,
             } = item;
             return (
@@ -53,12 +55,9 @@ export const Events = ({ title, description, quote }) => {
                     alt={title}
                   />
                   <h4 className="title mt-4">{title}</h4>
-                  <br /> {description && <p>{description}</p>}
+                  <br /> {description && <p>{parse(description)}</p>}
                   {other && <p>{other}</p>}
                   {comments && <p>{comments}</p>}
-                  {files_attachment && (
-                    <a href={files_attachment}>For more information</a>
-                  )}
                   {meetUrl && <a href={meetUrl}>For more information</a>}
                 </div>
               </div>

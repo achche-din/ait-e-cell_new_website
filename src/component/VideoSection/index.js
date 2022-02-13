@@ -26,7 +26,7 @@ export const VideoSection = () => {
             videoLink = videoLink.split("/").pop();
             videoLink = "https://www.youtube.com/embed/"
               .concat(videoLink)
-              .concat("?enablejsapi=1&origin=http://127.0.0.1:3000");
+              .concat(`?enablejsapi=1&origin=${process.env.REACT_APP_FRONTEND_ENDPOINT}`);
 
             return (
               <div

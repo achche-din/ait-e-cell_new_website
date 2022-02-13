@@ -1,13 +1,5 @@
 export const BACKEND_DATA_QUERY = `
 {
-  eventtypes {
-    id
-    title
-    events {
-      id
-      title
-    }
-  }
   events {
     id
     title
@@ -21,8 +13,11 @@ export const BACKEND_DATA_QUERY = `
       title
     }
     others
-    filesAttachment
     comments
+    tags{
+      id
+      title
+    }
   }
   latestupdates {
     id
@@ -30,13 +25,6 @@ export const BACKEND_DATA_QUERY = `
     startDate
     endDate
     link
-  }
-  documents {
-    id
-    title
-    description
-    documentLink
-    image
   }
   videos {
     id
@@ -48,10 +36,11 @@ export const BACKEND_DATA_QUERY = `
     id
     title
     description
-    image
-    link
+    imageLink
+    documentLink
+    website
   }
-  categories {
+  tags {
     id
     title
   } 
@@ -59,10 +48,11 @@ export const BACKEND_DATA_QUERY = `
     id
     name
     designation
-    image
     description
-    socialLinks
-    category {
+    imageLink
+    linkedin
+    instagram
+    tags{
       id
       title
     }
@@ -81,7 +71,7 @@ export const BACKEND_DATA_QUERY = `
     title
     companyLink
     description
-    image
+    imageLink
     applyLink
     deadline
   }
@@ -89,8 +79,8 @@ export const BACKEND_DATA_QUERY = `
     id
     title
     description
-    image
-    link
+    imageLink
+    website
   }
 }
 `;

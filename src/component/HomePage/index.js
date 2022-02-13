@@ -9,6 +9,7 @@ import { VideoSection } from "../VideoSection";
 import { Events } from "../Events";
 import "./index.css";
 import { Icon } from "@iconify/react";
+import parse from "html-react-parser";
 import { useDataHooks } from "../../hooks/useDataHooks";
 
 export const HomePage = () => {
@@ -28,7 +29,7 @@ export const HomePage = () => {
     const documents = data.documents;
     setDocuments(
       documents.filter((item) => {
-        return item.title != "Udyamita";
+        return item.title != "newsletter";
       })
     );
   }
@@ -42,14 +43,14 @@ export const HomePage = () => {
   }
   function fetchAlumniJSON() {
     const alumni = data.people.filter(
-      (item) => item.category[0].title === "Alumni Entrepreneur"
+      (item) => item.tags[0].title === "alumni-entrepreneur"
     );
     setAlumni(alumni);
   }
 
   useEffect(() => {
     fetchUpdatesJSON();
-    fetchDocumentsJSON();
+    // fetchDocumentsJSON();
     fetchStartupsJSON();
     fetchCollabarationJSON();
     fetchAlumniJSON();
@@ -69,7 +70,7 @@ export const HomePage = () => {
                 <div className="col-12 col-sm-12 col-md-9 col-lg-10 ">
                   <marquee behavior="scroll" direction="left">
                     {latestUpdates.map((item) => {
-                      const { id, title, startDate, endData, link } = item;
+                      const { id, title, link } = item;
                       return (
                         <a
                           key={id}
@@ -94,7 +95,7 @@ export const HomePage = () => {
         <div className="container">
           <div className="section-title">
             <div className="row content">
-              {documents.map((item) => {
+              {/* {documents.map((item) => {
                 const { id, title, documentLink, image } = item;
                 return (
                   <div className="col-lg-4 pt-4 pt-lg-0" key={id}>
@@ -107,7 +108,7 @@ export const HomePage = () => {
                     </a>
                   </div>
                 );
-              })}
+              })} */}
             </div>
           </div>
         </div>
@@ -165,10 +166,10 @@ export const HomePage = () => {
       <AboutUs />
       <VideoSection />
 
-      <Events title="Event" description="" quote="" />
+      <Events title="events" description="" quote="" />
 
       <Events
-        title="Visit"
+        title="visits"
         description="Some awesome visits by us"
         quote="“Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful.” - Albert Schweitzer."
       />
@@ -206,7 +207,7 @@ export const HomePage = () => {
 
           <div className="row startup-container">
             {startups.map((item) => {
-              const { id, title, description, image, link } = item;
+              const { id, title, description, imageLink, link } = item;
               return (
                 <div
                   className="col-md-6 col-lg-4 d-flex justify-content-center align-items-stretch mb-5 mb-lg-3    mx-auto"
@@ -215,12 +216,12 @@ export const HomePage = () => {
                   <div className="icon-box">
                     <img
                       className="img-fluid mb-2 mb-lg-2"
-                      src={image}
+                      src={imageLink}
                       style={{ height: "250px" }}
                       alt={title}
                     />
                     <h4 className="title mt-4">{title}</h4>
-                    <br /> {description && <p>{description}</p>}
+                    <br /> {description && <p>{parse(description)}</p>}
                     {link && <a href={link}>visit</a>}
                   </div>
                 </div>
@@ -244,7 +245,7 @@ export const HomePage = () => {
 
           <div className="row">
             {collaboration.map((item) => {
-              const { id, title, description, image, link } = item;
+              const { id, title, description, imageLink, website } = item;
               return (
                 <div
                   className="col-lg-4 col-md-6 mt-4 mt-lg-3 mx-auto "
@@ -252,10 +253,16 @@ export const HomePage = () => {
                 >
                   <div className="box">
                     <h3> {title}</h3>
-                    <p style={{ lineHeight: "1.8rem" }}>{description}</p>
+                    <img
+                      className="img-fluid mb-2 mb-lg-2"
+                      src={imageLink}
+                      style={{ height: "250px" }}
+                      alt={title}
+                    />
+                    <p style={{ lineHeight: "1.8rem" }}>{parse(description)}</p>
                     <div className="btn-wrap">
                       <a
-                        href={link}
+                        href={website}
                         className="btn-buy "
                         style={{ textDecoration: "none" }}
                       >
@@ -283,9 +290,10 @@ export const HomePage = () => {
                 id,
                 name,
                 designation,
-                image,
+                imageLink,
                 description,
-                socialLinks,
+                instagram,
+                linkedin,
                 batch,
                 isActive,
               } = item;
@@ -309,16 +317,31 @@ export const HomePage = () => {
                   >
                     <img
                       className="card-img-top "
-                      src={image}
+                      src={imageLink}
                       alt="Card "
                       style={{ width: "100%" }}
                     />
                     <div className="card-body">
                       <h4 className="card-title"> {name}</h4>
                       <p className="card-text"> {designation} </p>
-                      {socialLinks && (
-                        <a href={socialLinks} className="btn btn-primary">
-                          See Profile
+                      {instagram && (
+                        <a href={instagram}>
+                          <Icon
+                            icon="akar-icons:instagram-fill"
+                            color="#ff5400"
+                            width="30"
+                            height="30"
+                          />
+                        </a>
+                      )}
+                      {linkedin && (
+                        <a href={linkedin}>
+                          <Icon
+                            icon="jam:linkedin-square"
+                            color="#2863d1"
+                            width="30"
+                            height="30"
+                          />
                         </a>
                       )}
                       <p>Batch: {batch}</p>

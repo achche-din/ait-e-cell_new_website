@@ -12,8 +12,9 @@ export const TeamPage = () => {
   const [teams, setTeams] = useState([]);
 
   async function fetchTeamsJSON() {
+    console.log("fetching teams", data);
     const teamsData = data.people.filter(
-      (item) => item.category[0].title === "Team Member"
+      (item) => item.tags[0].title === "team-member"
     );
     setTeams(teamsData);
   }
@@ -36,9 +37,10 @@ export const TeamPage = () => {
               id,
               name,
               designation,
-              image,
+              imageLink,
               description,
-              socialLinks,
+              instagram,
+              linkedin,
               batch,
             } = item;
             return (
@@ -46,10 +48,10 @@ export const TeamPage = () => {
                 key={id}
                 name={name}
                 designation={designation}
-                description={description}
-                socialLinks={socialLinks}
+                instagram={instagram}
+                linkedin={linkedin}
                 batch={batch}
-                image={image}
+                imageLink={imageLink}
               />
             );
           })}

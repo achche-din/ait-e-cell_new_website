@@ -4,9 +4,10 @@ import { Icon } from "@iconify/react";
 export const TeamCard = ({
   name,
   designation,
-  image,
   description,
-  socialLinks,
+  instagram,
+  linkedin,
+  imageLink,
   batch,
 }) => {
   return (
@@ -14,12 +15,12 @@ export const TeamCard = ({
       <div className="card">
         <div className="card-folder hover">
           <div className="profile">
-            <img src={image} alt={name} />
+            <img src={imageLink} alt={name} />
           </div>
           <div className="socials">
             <a
               className="btn btn-outline-light btn-social mx-1"
-              href="https://www.instagram.com/ecell_ait/"
+              href={instagram}
               style={{
                 background: "#2267cf",
                 borderRadius: "100%",
@@ -35,7 +36,7 @@ export const TeamCard = ({
             </a>
             <a
               className="btn btn-outline-light btn-social mx-1"
-              href="https://www.linkedin.com/"
+              href={linkedin}
               style={{
                 background: "#2267cf",
                 borderRadius: "100%",
@@ -55,7 +56,7 @@ export const TeamCard = ({
           <div className="member-name">{name}</div>
           {/* <div className="branch-year"></div> */}
           <div className="role-domain">{designation}</div>
-          {description && <div>{description}</div>}
+          {/* {description && <div>{description}</div>} */}
         </div>
       </div>
     </div>
