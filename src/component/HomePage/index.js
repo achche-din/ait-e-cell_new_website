@@ -9,7 +9,7 @@ import { VideoSection } from "../VideoSection";
 import { Events } from "../Events";
 import "./index.css";
 import { Icon } from "@iconify/react";
-import parse from "html-react-parser";
+// import parse from "html-react-parser";
 import { useDataHooks } from "../../hooks/useDataHooks";
 
 export const HomePage = () => {
@@ -207,7 +207,7 @@ export const HomePage = () => {
 
           <div className="row startup-container">
             {startups.map((item) => {
-              const { id, title, description, imageLink, link } = item;
+              const { id, title, imageLink, link } = item;
               return (
                 <div
                   className="col-md-6 col-lg-4 d-flex justify-content-center align-items-stretch mb-5 mb-lg-3    mx-auto"
@@ -221,7 +221,7 @@ export const HomePage = () => {
                       alt={title}
                     />
                     <h4 className="title mt-4">{title}</h4>
-                    <br /> {description && <div>{parse(description)}</div>}
+                    {/* <br /> {description && <div>{parse(description)}</div>} */}
                     {link && <a href={link}>visit</a>}
                   </div>
                 </div>
@@ -245,7 +245,7 @@ export const HomePage = () => {
 
           <div className="row">
             {collaboration.map((item) => {
-              const { id, title, description, imageLink, website } = item;
+              const { id, title, imageLink, website } = item;
               return (
                 <div
                   className="col-lg-4 col-md-6 mt-4 mt-lg-3 mx-auto "
@@ -259,7 +259,7 @@ export const HomePage = () => {
                       style={{ height: "250px" }}
                       alt={title}
                     />
-                    <p style={{ lineHeight: "1.8rem" }}>{parse(description)}</p>
+                    {/* <p style={{ lineHeight: "1.8rem" }}>{parse(description)}</p> */}
                     <div className="btn-wrap">
                       <a
                         href={website}
