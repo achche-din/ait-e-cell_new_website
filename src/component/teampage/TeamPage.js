@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar } from "../Navbar/index";
 import { Footer } from "../Footer";
 import { useDataHooks } from "../../hooks/useDataHooks";
@@ -9,26 +9,10 @@ import "./TeamPage.css";
 export const TeamPage = () => {
   const { data, isLoading } = useDataHooks();
   const [teams, setTeams] = useState([]);
-  const [dataLoaded, setDataLoaded] = useState(true);
-
-  const fetchTeamsJSON = useCallback(() => {
-    if (dataLoaded) {
-      console.log("fetching teams", data);
-      const teamsData = data.people.filter((item) => {
-        if (item.tags) {
-          console.log("inside teams", item.tags);
-          return item.tags.some((tag) => tag.title === "team-member");
-        }
-        return false;
-      });
-      setTeams(teamsData);
-      setDataLoaded(false);
-    }
-  }, [data, dataLoaded, setDataLoaded]);
 
   useEffect(() => {
-    fetchTeamsJSON();
-  }, [fetchTeamsJSON]);
+    setTeams(data.teamMembers);
+  }, [data]);
 
   const darkstyle = true;
   return (

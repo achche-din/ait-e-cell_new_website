@@ -4,18 +4,16 @@ import { Icon } from "@iconify/react";
 export const TeamCard = ({
   name,
   designation,
-  description,
   instagram,
   linkedin,
   imageLink,
-  batch,
 }) => {
   return (
     <div>
       <div className="card">
         <div className="card-folder hover">
           <div className="profile">
-            <img src={imageLink} alt={name} />
+            <img src={imageLink} alt={name} style={{ width: "inherit" }} />
           </div>
           <div className="socials">
             <a
