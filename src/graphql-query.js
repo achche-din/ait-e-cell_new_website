@@ -1,5 +1,10 @@
 export const BACKEND_DATA_QUERY = `
 {
+  allsectionstypes {
+    id
+    sectionName
+    isActive
+  }
   events {
     id
     title
@@ -8,16 +13,101 @@ export const BACKEND_DATA_QUERY = `
     endDate
     imageUrl
     meetUrl
-    eventType {
+    tags {
       id
       title
+    }
+    documentsLinks{
+      id
+      title
+      link
+      description
+      logoUrl
+      tag{
+        id
+        title
+      }
     }
     others
     comments
-    tags{
+  }
+  visits{
+    id
+    title
+    description
+    startDate
+    endDate
+    imageUrl
+    meetUrl
+    tags {
       id
       title
     }
+    documentsLinks{
+      id
+      title
+      link
+      description
+      logoUrl
+      tag{
+        id
+        title
+      }
+    }
+    others
+    comments
+  }
+  sessions{
+    id
+    title
+    description
+    startDate
+    endDate
+    imageUrl
+    meetUrl
+    tags {
+      id
+      title
+    }
+    documentsLinks{
+      id
+      title
+      link
+      description
+      logoUrl
+      tag{
+        id
+        title
+      }
+    }
+    others
+    comments
+  }
+  trainings{
+    id
+    title
+    description
+    startDate
+    endDate
+    imageUrl
+    meetUrl
+    tags {
+      id
+      title
+    }
+    documentsLinks{
+      id
+      title
+      link
+      description
+      logoUrl
+      tag{
+        id
+        title
+      }
+    }
+    others
+    comments
   }
   latestupdates {
     id
@@ -40,31 +130,95 @@ export const BACKEND_DATA_QUERY = `
     documentLink
     website
   }
-  tags {
+  tags{
     id
     title
-  } 
+  }
   people {
     id
     name
     designation
-    description
     imageLink
+    description
     linkedin
     instagram
-    tags{
+    tags {
       id
       title
     }
     isActive
     batch
-  } 
+  }
+  teamMembers{
+    id
+    name
+    designation
+    imageLink
+    description
+    linkedin
+    instagram
+    tags {
+      id
+      title
+    }
+    isActive
+    batch
+  }
+  alumniEntrepreneurs{
+    id
+    name
+    designation
+    imageLink
+    description
+    linkedin
+    instagram
+    tags {
+      id
+      title
+    }
+    isActive
+    batch
+  }
+  industrialMentors{
+    id
+    name
+    designation
+    imageLink
+    description
+    linkedin
+    instagram
+    tags {
+      id
+      title
+    }
+    isActive
+    batch
+  }
+  facultyMentors{
+    id
+    name
+    designation
+    imageLink
+    description
+    linkedin
+    instagram
+    tags {
+      id
+      title
+    }
+    isActive
+    batch
+  }
   links {
     id
     title
     link
     description
     logoUrl
+    tag{
+      id
+      title
+    }
   }
   internships {
     id
@@ -81,6 +235,15 @@ export const BACKEND_DATA_QUERY = `
     description
     imageLink
     website
+  }
+  otherdetails{
+    id
+    motto
+    vision
+    mission
+    policy
+    Rules
+    aboutUs
   }
 }
 `;

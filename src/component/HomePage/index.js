@@ -8,6 +8,9 @@ import { VideoSection } from "../VideoSection";
 import { Newsletter } from "../Newsletter";
 import { AboutUs } from "../AboutUs";
 import { Events } from "../Events";
+import { Startups } from "../Startups";
+import { Collaborations } from "../Collaborations";
+import { AlumniEntrepreneurs } from "../AlumniEntrepreneurs";
 import { Footer } from "../Footer";
 import { Hero } from "../Hero";
 import "./index.css";
@@ -17,14 +20,7 @@ export const HomePage = () => {
 
   // const [documents, setDocuments] = useState([]);
   const [latestUpdates, setLatestUpdates] = useState([]);
-  const [startups, setStartups] = useState([]);
-  const [collaboration, setCollaboration] = useState([]);
-  const [alumni, setAlumni] = useState([]);
-
   const [latestUpdatesdataLoaded, setLatestUpdatesdataLoaded] = useState(true);
-  const [startupsLoaded, setStartupsLoaded] = useState(true);
-  const [collaborationLoaded, setCollaborationLoaded] = useState(true);
-  const [alumniLoaded, setAlumniLoaded] = useState(true);
 
   const fetchUpdatesJSON = useCallback(() => {
     if (latestUpdatesdataLoaded) {
@@ -42,46 +38,11 @@ export const HomePage = () => {
   //     })
   //   );
   // }
-  const fetchStartupsJSON = useCallback(() => {
-    if (startupsLoaded) {
-      const startups = data.startups;
-      setStartups(startups);
-      setStartupsLoaded(false);
-    }
-  }, [data, startupsLoaded]);
-
-  const fetchCollabarationJSON = useCallback(() => {
-    if (collaborationLoaded) {
-      const collaboration = data.collaboration;
-      setCollaboration(collaboration);
-      setCollaborationLoaded(false);
-    }
-  }, [data, collaborationLoaded]);
-
-  const fetchAlumniJSON = useCallback(() => {
-    if (alumniLoaded) {
-      const alumni = data.people.filter((item) => {
-        if (item.tags) {
-          console.log("inside alumni-entrepreneur", item.tags);
-          return item.tags.some((tag) => tag.title === "alumni-entrepreneur");
-        }
-        return false;
-      });
-      setAlumni(alumni);
-      setAlumniLoaded(false);
-    }
-  }, [data, alumniLoaded]);
-
+  
   useEffect(() => {
     // fetchDocumentsJSON();
-    fetchAlumniJSON();
-    fetchCollabarationJSON();
-    fetchStartupsJSON();
     fetchUpdatesJSON();
   }, [
-    fetchAlumniJSON,
-    fetchCollabarationJSON,
-    fetchStartupsJSON,
     fetchUpdatesJSON,
   ]);
 
@@ -89,6 +50,8 @@ export const HomePage = () => {
     <>
       <Hero />
       <main id="main">
+        {" "}
+        {/* LatestUpdates */}
         <div className="container">
           <div className="alert alert-info m-0 h-2" role="alert">
             <div className="container">
@@ -120,7 +83,10 @@ export const HomePage = () => {
           </div>
         </div>
       </main>
+
       <section id="about" className="about">
+        {" "}
+        {/* documents */}
         <div className="container">
           <div className="section-title">
             <div className="row content">
@@ -142,6 +108,7 @@ export const HomePage = () => {
           </div>
         </div>
       </section>
+
       <section
         className="services "
         id="solution"
@@ -191,198 +158,56 @@ export const HomePage = () => {
           </div>
         </div>
       </section>
+
       <Newsletter />
       <AboutUs />
       <VideoSection />
 
-      <Events title="events" description="" quote="" eventType="events" />
+      <Events title="events" description="" quote="" data={data.events} />
 
       <Events
         title="visits"
         description="Some awesome visits by us"
         quote="“Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful.” - Albert Schweitzer."
-        eventType="visits"
+        data={data.visits}
       />
 
-      <Events title="Session" description="" quote="" eventType="sessions" />
+      <Events title="Session" description="" quote="" data={data.sessions} />
 
       <Events
         title="ENTREPRENEURSHIP TRAINING"
         description=""
         quote="“Build your own dreams, or someone else will hire you to build theirs.” - Farrah Gray"
-        eventType="trainings"
+        data={data.trainings}
       />
 
       <Events
         title="INTERNSHIP PROGRAMS AND MENTOR SUPPORT"
         description=""
         quote="“The best way to predict the future is to create it.” - Peter Drucker"
-        eventType="internships"
+        data={data.internships}
       />
 
-      <section id="start-ups" className="portfolio services">
-        <div
-          className="container"
-          style={{ display: "flex", flexDirection: "column" }}
-        >
-          <div className="section-title">
-            <h2>Startup Initiatives</h2>
-            <h3>
-              Check our <span>Startup Initiatives</span>
-            </h3>
-            <p>
-              “The price of success is hard work, dedication to the job at hand,
-              and the determination that whether we win or lose, we have applied
-              the best of ourselves to the task at hand.” - Vince Lombardi
-            </p>
-          </div>
+      <Startups
+        title="Startup Initiatives"
+        description="Check our <span>Startup Initiatives</span>"
+        quote="“The price of success is hard work, dedication to the job at hand, and the determination that whether we win or lose, we have applied the best of ourselves to the task at hand.” - Vince Lombardi"
+        data={data.startups}
+      />
+      <Collaborations
+        title="Incubation center Connect"
+        description="All these centers provide active support to aspiring students of AIT"
+        quote=""
+        data={data.collaboration}
+      />
 
-          <div className="row startup-container">
-            {startups.map((item) => {
-              const { id, title, imageLink, link } = item;
-              return (
-                <div
-                  className="col-md-6 col-lg-4 d-flex justify-content-center align-items-stretch mb-5 mb-lg-3    mx-auto"
-                  key={id}
-                >
-                  <div className="icon-box">
-                    <img
-                      className="img-fluid mb-2 mb-lg-2"
-                      src={imageLink}
-                      style={{ height: "250px" }}
-                      alt={title}
-                    />
-                    <h4 className="title mt-4">{title}</h4>
-                    {/* <br /> {description && <div>{parse(description)}</div>} */}
-                    {link && <a href={link}>visit</a>}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-      <section id="incubation" className="pricing">
-        <div
-          className="container"
-          style={{ display: "flex", flexDirection: "column" }}
-        >
-          <div className="section-title">
-            <h2>Incubation center Connect</h2>
-            <p>
-              All these centers provide active support to aspiring students of
-              AIT
-            </p>
-          </div>
+      <AlumniEntrepreneurs
+        title="Alumni Entrepreneurs"
+        description="All these centers provide active support to aspiring students of AIT"
+        quote=""
+        data={data.alumniEntrepreneurs}
+      />
 
-          <div className="row">
-            {collaboration.map((item) => {
-              const { id, title, imageLink, website } = item;
-              return (
-                <div
-                  className="col-lg-4 col-md-6 mt-4 mt-lg-3 mx-auto "
-                  key={id}
-                >
-                  <div className="box">
-                    <h3> {title}</h3>
-                    <img
-                      className="img-fluid mb-2 mb-lg-2"
-                      src={imageLink}
-                      style={{ height: "250px" }}
-                      alt={title}
-                    />
-                    {/* <p style={{ lineHeight: "1.8rem" }}>{parse(description)}</p> */}
-                    <div className="btn-wrap">
-                      <a
-                        href={website}
-                        className="btn-buy "
-                        style={{ textDecoration: "none" }}
-                      >
-                        Visit website
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-      <section id="alumni" className="services">
-        <div className="container">
-          <div className="section-title">
-            <h2 className="display-5">Alumni Entrepreneurs</h2>
-          </div>
-          <div
-            className="row d-flex flex-row mx-auto"
-            style={{ width: "100%" }}
-          >
-            {alumni.map((item) => {
-              const {
-                id,
-                name,
-                designation,
-                imageLink,
-                instagram,
-                linkedin,
-                batch,
-              } = item;
-              return (
-                <div
-                  className="col-xl-3 col-lg-4 col-md-6 col-sm-6 mx-auto"
-                  key={id}
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <div
-                    className="card"
-                    style={{
-                      width: "250px",
-                      height: "430px",
-                      marginBottom: "20px",
-                    }}
-                  >
-                    <img
-                      className="card-img-top "
-                      src={imageLink}
-                      alt="Card "
-                      style={{ width: "100%" }}
-                    />
-                    <div className="card-body">
-                      <h4 className="card-title"> {name}</h4>
-                      <p className="card-text"> {designation} </p>
-                      {instagram && (
-                        <a href={instagram}>
-                          <Icon
-                            icon="akar-icons:instagram-fill"
-                            color="#ff5400"
-                            width="30"
-                            height="30"
-                          />
-                        </a>
-                      )}
-                      {linkedin && (
-                        <a href={linkedin}>
-                          <Icon
-                            icon="jam:linkedin-square"
-                            color="#2863d1"
-                            width="30"
-                            height="30"
-                          />
-                        </a>
-                      )}
-                      <p>Batch: {batch}</p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
       <section
         className="page-section"
         id="mentor "
