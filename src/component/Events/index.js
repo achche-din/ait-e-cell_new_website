@@ -9,12 +9,11 @@ export const Events = ({ title, description, quote, data }) => {
       <div className="container">
         {title && (
           <div className="section-title">
-            <h2 className="display-5">{title + "s"}</h2>
+            <h2 className="display-5">{title}</h2>
             {description && <h3>{description}</h3>}
             {title && <p>{quote}</p>}
           </div>
         )}
-
         <div className="row">
           {data.map((item) => {
             const {
@@ -26,6 +25,10 @@ export const Events = ({ title, description, quote, data }) => {
               other,
               comments,
             } = item;
+            var shortdescription =
+              description?.length > 100
+                ? description.substr(0, 100) + "..."
+                : description;
             return (
               <div
                 className="col-md-6 col-lg-4 d-flex justify-content-center align-items-stretch mb-5 mb-lg-3 mx-auto"
@@ -39,7 +42,8 @@ export const Events = ({ title, description, quote, data }) => {
                     alt={title}
                   />
                   <h4 className="title mt-4">{title}</h4>
-                  <br /> {description && <div>{parse(description)}</div>}
+                  <br />{" "}
+                  {shortdescription && <div>{parse(shortdescription)}</div>}
                   {other && <div>{other}</div>}
                   {comments && <div>{comments}</div>}
                   {meetUrl && <a href={meetUrl}>For more information</a>}
@@ -48,6 +52,9 @@ export const Events = ({ title, description, quote, data }) => {
             );
           })}
         </div>
+        <a href="#" className="text-primary stretched-link">
+          Checkout more {title}
+        </a>
       </div>
     </section>
   );
