@@ -32,7 +32,7 @@ export const Navbar = ({ darkstyle }) => {
       className={scrolled ? "fixed-top header-scrolled" : "fixed-top"}
     >
       <div className="container d-flex align-items-center">
-        <a href="index.html" className="logo mr-auto">
+        <a href="/" className="logo mr-auto">
           <img
             src="https://aitecell.in/assets/img/logo.png"
             alt="ss"
@@ -50,17 +50,23 @@ export const Navbar = ({ darkstyle }) => {
         <nav className="nav-menu d-none d-lg-block">
           <ul>
             <li className={isActive ? "active" : undefined}>
-              <a href="/#home" className={darkstyle ? "text-dark" : undefined}>
+              <a href="/#hero" className={darkstyle ? "text-dark" : undefined}>
                 Home
               </a>
             </li>
             <li className={isActive ? "active" : undefined}>
-              <a href="/#Event" className={darkstyle ? "text-dark" : undefined}>
+              <a
+                href="/#events"
+                className={darkstyle ? "text-dark" : undefined}
+              >
                 Events
               </a>
             </li>
             <li className={isActive ? "active" : undefined}>
-              <a href="/#Visit" className={darkstyle ? "text-dark" : undefined}>
+              <a
+                href="/#visits"
+                className={darkstyle ? "text-dark" : undefined}
+              >
                 Visits
               </a>
             </li>

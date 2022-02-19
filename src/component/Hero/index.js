@@ -1,7 +1,8 @@
 import React from "react";
+import parse from "html-react-parser";
 import "./index.css";
 
-export const Hero = () => {
+export const Hero = ({ motto }) => {
   return (
     <section id="hero">
       <div className="hero-container text-white">
@@ -21,7 +22,7 @@ export const Hero = () => {
           />{" "}
           <span>AIT E-Cell</span>
         </h1>
-        <h2>“ Driving the Innovations”</h2>
+        <h2>{parse(motto)}</h2>
       </div>
     </section>
   );

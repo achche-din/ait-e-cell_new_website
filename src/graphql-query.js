@@ -1,5 +1,5 @@
 export const BACKEND_DATA_QUERY = `
-{
+{  
   allsectionstypes {
     id
     sectionName
@@ -109,12 +109,14 @@ export const BACKEND_DATA_QUERY = `
     others
     comments
   }
-  latestupdates {
+  latestheadlines {
     id
     title
     startDate
     endDate
     link
+    description
+    imageUrl
   }
   videos {
     id
@@ -130,6 +132,7 @@ export const BACKEND_DATA_QUERY = `
     documentLink
     website
   }
+  
   tags{
     id
     title
@@ -168,7 +171,7 @@ export const BACKEND_DATA_QUERY = `
     id
     name
     designation
-    imageLink
+		imageLink
     description
     linkedin
     instagram

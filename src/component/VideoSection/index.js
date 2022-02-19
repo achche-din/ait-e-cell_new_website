@@ -1,22 +1,7 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 import "./index.css";
-import { useDataHooks } from "../../hooks/useDataHooks";
 
-export const VideoSection = () => {
-  const { data } = useDataHooks();
-  const [videos, setVideos] = useState([]);
-
-  const fetchVideoJSON = useCallback(() => {
-    if (videos.length === 0) {
-      const videos = data.videos;
-      setVideos(videos);
-    }
-  }, [data, videos]);
-
-  useEffect(() => {
-    fetchVideoJSON();
-  }, [fetchVideoJSON]);
-
+export const VideoSection = ({ videos }) => {
   return (
     <section className=" " style={{ backgroundColor: "#fdfd96" }}>
       <div className="container">
@@ -33,7 +18,7 @@ export const VideoSection = () => {
 
             return (
               <div
-                className="col-md-6 col-lg-6 col-xl-4 d-flex justify-content-center  mb-5 mb-lg-3 mx-auto"
+                className="col-md-6 col-lg-6 col-xl-4 d-flex justify-content-center mb-5 mb-lg-3 mx-auto"
                 key={id}
               >
                 <iframe
@@ -49,6 +34,9 @@ export const VideoSection = () => {
             );
           })}
         </div>
+        <a href="/#" className="text-primary stretched-link">
+          Checkout more videos
+        </a>
       </div>
     </section>
   );
