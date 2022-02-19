@@ -15,22 +15,16 @@ export const ContactUs = ({ social_links }) => {
               {social_links.map((item) => {
                 const { id, link } = item;
                 return (
-                  <>
-                    <div className="icon-contact mx-3">
-                      <a
-                        key={id}
-                        className="noti-con text-primary "
-                        href={link}
-                      >
-                        <Icon
-                          icon="carbon:email"
-                          color="white"
-                          width="40"
-                          height="40"
-                        />
-                      </a>
-                    </div>
-                  </>
+                  <div key={id} className="icon-contact mx-3">
+                    <a className="noti-con text-primary " href={link}>
+                      <Icon
+                        icon="carbon:email"
+                        color="white"
+                        width="40"
+                        height="40"
+                      />
+                    </a>
+                  </div>
                 );
               })}
             </div>

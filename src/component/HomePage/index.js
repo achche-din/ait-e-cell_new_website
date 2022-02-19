@@ -22,7 +22,7 @@ export const HomePage = () => {
       <Hero
         motto={data.otherdetails.length > 0 ? data.otherdetails[0].motto : null}
       />
-      <Headlines headlines={data.latestupdates} />
+      <Headlines headlines={data.latestheadlines} />
 
       <section id="about" className="about">
         {" "}

@@ -3,9 +3,10 @@ import { BACKEND_DATA_QUERY } from "../graphql-query";
 
 export const useDataHooks = () => {
   // var endpoint = "http://127.0.0.1:8000/";
-  // if (process.env.NODE_ENV === "production") {
   var endpoint = process.env.REACT_APP_DJANGO_API_ENDPOINT;
-  // }
+  if (process.env.NODE_ENV === "production") {
+    var endpoint = process.env.REACT_APP_DJANGO_API_ENDPOINT;
+  }
 
   return useQuery("launches", () => {
     return fetch(`${endpoint + "graphql/"}`, {

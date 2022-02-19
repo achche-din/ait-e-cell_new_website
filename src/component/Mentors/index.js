@@ -29,9 +29,9 @@ export const Mentors = ({ advisors, facultyMentors, industrialMentors }) => {
               <div className="card-body ">
                 <ul className="list-group">
                   {advisors.map((advisor) => {
-                    const { name, designation } = advisor;
+                    const { id, name, designation } = advisor;
                     return (
-                      <li className="list-group-item">
+                      <li key={id} className="list-group-item">
                         {name}, {designation}
                       </li>
                     );
@@ -44,9 +44,9 @@ export const Mentors = ({ advisors, facultyMentors, industrialMentors }) => {
               <div className="card-body ">
                 <ul className="list-group">
                   {facultyMentors.map((facultyMentor) => {
-                    const { name, designation } = facultyMentor;
+                    const { id, name, designation } = facultyMentor;
                     return (
-                      <li className="list-group-item">
+                      <li key={id} className="list-group-item">
                         {name}, {designation}
                       </li>
                     );
@@ -62,9 +62,9 @@ export const Mentors = ({ advisors, facultyMentors, industrialMentors }) => {
               <div className="card-body ">
                 <ul className="list-group">
                   {industrialMentors.map((industrialMentor) => {
-                    const { name, designation } = industrialMentor;
+                    const { id, name, designation } = industrialMentor;
                     return (
-                      <li className="list-group-item">
+                      <li key={id} className="list-group-item">
                         {name}, {designation}
                       </li>
                     );
@@ -80,7 +80,7 @@ export const Mentors = ({ advisors, facultyMentors, industrialMentors }) => {
                 <ul className="list-group">
                   <li className="list-group-item">Prof. Geeta Patil</li>
                 </ul>
-              </div>  
+              </div>
             </div>
           </div>
         </div>
