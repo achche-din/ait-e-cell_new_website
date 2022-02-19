@@ -105,7 +105,7 @@ export const HomePage = () => {
           data.otherdetails.length > 0 ? data.otherdetails[0] : null
         }
       />
-      <VideoSection videos={data.videos.slice(0, 4)} />
+      <VideoSection videos={data.videos.slice(0, 3)} />
 
       <Events
         title="events"
@@ -152,14 +152,14 @@ export const HomePage = () => {
         title="Incubation center Connect"
         description="All these centers provide active support to aspiring students of AIT"
         quote=""
-        data={data.collaboration.slice(0, 6)}
+        data={data.collaboration.slice(0, 3)}
       />
 
       <AlumniEntrepreneurs
         title="Alumni Entrepreneurs"
         description="All these centers provide active support to aspiring students of AIT"
         quote=""
-        data={data.alumniEntrepreneurs.slice(0, 6)}
+        data={data.alumniEntrepreneurs.slice(0, 4)}
       />
 
       <Mentors
