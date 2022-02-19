@@ -44,7 +44,7 @@ export const Collaborations = ({ title, description, quote, data }) => {
             );
           })}
         </div>
-        <a href="#" className="text-primary stretched-link">
+        <a href="/#" className="text-primary stretched-link">
           Checkout more {title}
         </a>
       </div>

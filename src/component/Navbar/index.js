@@ -50,7 +50,7 @@ export const Navbar = ({ darkstyle }) => {
         <nav className="nav-menu d-none d-lg-block">
           <ul>
             <li className={isActive ? "active" : undefined}>
-              <a href="#" className={darkstyle ? "text-dark" : undefined}>
+              <a href="/#hero" className={darkstyle ? "text-dark" : undefined}>
                 Home
               </a>
             </li>

@@ -34,7 +34,7 @@ export const VideoSection = ({ videos }) => {
             );
           })}
         </div>
-        <a href="#" className="text-primary stretched-link">
+        <a href="/#" className="text-primary stretched-link">
           Checkout more videos
         </a>
       </div>
