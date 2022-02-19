@@ -14,7 +14,7 @@ export const Headlines = ({ headlines }) => {
                 <p>Latest Updates</p>
               </div>
               <div className="col-12 col-sm-12 col-md-9 col-lg-10 ">
-                <marquee>
+                <div className="marquee">
                   {headlines.map((item) => {
                     const { id, title, link } = item;
                     return (
@@ -24,13 +24,13 @@ export const Headlines = ({ headlines }) => {
                         href={link}
                       >
                         {title}
-                        <span className="badge badge-success bg-success mx-2  badge">
+                        <p className="badge badge-success bg-success mx-2  badge">
                           NEW
-                        </span>
+                        </p>
                       </a>
                     );
                   })}
-                </marquee>
+                </div>
               </div>
             </div>
           </div>
