@@ -36,13 +36,6 @@
   z-index: -1;
 }
 
-.services .icon-box:hover::before {
-  background: #f0e769;
-  top: 40%;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
-}
-
 .services .icon {
   margin-bottom: 15px;
 }

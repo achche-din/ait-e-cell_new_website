@@ -32,12 +32,14 @@ export const Events = ({ title, description, quote, data }) => {
                 key={id}
               >
                 <div className="icon-box">
-                  <img
-                    className="img-fluid mb-2 mb-lg-2"
-                    src={imageUrl}
-                    style={{ height: "250px" }}
-                    alt={title}
-                  />
+                  {imageUrl && (
+                    <img
+                      className="img-fluid mb-2 mb-lg-2"
+                      src={imageUrl}
+                      style={{ height: "250px" }}
+                      alt={title}
+                    />
+                  )}
                   <h4 className="title mt-4">{title}</h4>
                   <br /> {description && <div>{parse(description)}</div>}
                   {other && <div>{other}</div>}

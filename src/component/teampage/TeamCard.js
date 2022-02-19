@@ -13,7 +13,7 @@ export const TeamCard = ({
       <div className="card">
         <div className="card-folder hover">
           <div className="profile">
-            <img src={imageLink} alt={name} style={{ width: "inherit" }} />
+            <img src={imageLink} alt={name} />
           </div>
           <div className="socials">
             <a
