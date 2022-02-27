@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./index.css";
 
-export const VideoSection = ({ videos }) => {
+export const VideoSection = ({ videos, allVideos }) => {
+  const [video, setvideo] = useState(videos);
+  const [allShown, setAllShown] = useState(false);
+
+  const showAll = () => {
+    setvideo(allVideos);
+    setAllShown(true);
+  };
+  const showLess = () => {
+    setvideo(videos);
+    setAllShown(false);
+  };
+
   return (
-    <section className=" " style={{ backgroundColor: "#fdfd96" }}>
+    <section className=" " style={{ backgroundColor: "#fdfd96" }} id="videos">
       <div className="container">
         <div className="row " style={{ width: "100%" }}>
-          {videos.map((item) => {
+          {video.map((item) => {
             const { id, title } = item;
             var { videoLink } = item;
             videoLink = videoLink.split("/").pop();
@@ -34,9 +47,15 @@ export const VideoSection = ({ videos }) => {
             );
           })}
         </div>
-        <a href="/#" className="text-primary stretched-link">
-          Checkout more videos
-        </a>
+        {allShown ? (
+          <p className="text-primary stretched-link" onClick={showLess}>
+            Show Less
+          </p>
+        ) : (
+          <p className="text-primary stretched-link" onClick={showAll}>
+            Checkout more videos
+          </p>
+        )}
       </div>
     </section>
   );

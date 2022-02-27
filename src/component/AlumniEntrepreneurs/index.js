@@ -69,7 +69,7 @@ export const AlumniEntrepreneurs = ({ title, description, quote, data }) => {
                         />
                       </a>
                     )}
-                    <p>Batch: {batch}</p>
+                    {/* <p>Batch: {batch}</p> */}
                   </div>
                 </div>
               </div>

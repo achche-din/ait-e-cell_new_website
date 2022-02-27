@@ -58,7 +58,7 @@ export const Footer = () => {
                   </a>
                   <a
                     className="btn btn-outline-light btn-social mx-1 social-links"
-                    href="https://www.linkedin.com/"
+                    href="https://www.linkedin.com/company/innovation-entrepreneurship-cell/"
                     style={{
                       background: "#2267cf",
                       borderRadius: "100%",
@@ -74,7 +74,7 @@ export const Footer = () => {
                   </a>
                   <a
                     className="btn btn-outline-light btn-social mx-1 social-links"
-                    href="https://www.youtube.com/channel/UCSi5zU5q37iqqlny7djRbGA"
+                    href="https://www.youtube.com/channel/UCFzCKF338FWbJ24MQ3IKkUw/featured"
                     style={{
                       background: "#2267cf",
                       borderRadius: "100%",

@@ -11,6 +11,9 @@ export const TeamPage = () => {
   const [teams, setTeams] = useState([]);
 
   useEffect(() => {
+    data.teamMembers.sort(function (a, b) {
+      return a.batch - b.batch;
+    });
     setTeams(data.teamMembers);
   }, [data]);
 
