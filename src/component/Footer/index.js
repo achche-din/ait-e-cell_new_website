@@ -97,7 +97,7 @@ export const Footer = () => {
                   <li className="nav-item mx-0 mx-lg-1 ">
                     <a
                       className="nav-link px-1 bottom_link px-lg-3 rounded js-scroll-trigger"
-                      href="/#alumni"
+                      href="/allalumni"
                     >
                       Alumni Entrepreneurs
                     </a>
