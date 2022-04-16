@@ -115,3 +115,6 @@
 .link-to-linkedin:hover path {
   fill: black;
 }
+.section-title >h2{
+  cursor: pointer;
+}

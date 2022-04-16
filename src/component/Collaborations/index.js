@@ -18,7 +18,7 @@ export const Collaborations = ({ title, description, quote, data }) => {
 
         <div className="row">
           {data.map((item) => {
-            const { id, title, imageLink, website } = item;
+            const { id, title, imageLink, website, description } = item;
             return (
               <div className="col-lg-4 col-md-6 mt-4 mt-lg-3 mx-auto " key={id}>
                 <div className="box">
@@ -50,9 +50,9 @@ export const Collaborations = ({ title, description, quote, data }) => {
             );
           })}
         </div>
-        <a href="/#" className="text-primary stretched-link">
+        {/* <a href="/#" className="text-primary stretched-link">
           Checkout more {title}
-        </a>
+        </a> */}
       </div>
     </section>
   );

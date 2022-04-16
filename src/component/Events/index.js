@@ -2,6 +2,7 @@ import React from "react";
 import parse from "html-react-parser";
 
 import "./index.css";
+import { Link } from "react-router-dom";
 
 export const Events = ({ title, description, quote, data }) => {
   return (
@@ -54,9 +55,10 @@ export const Events = ({ title, description, quote, data }) => {
             );
           })}
         </div>
-        <a href="/#" className="text-primary stretched-link">
+
+        <Link to={`${title}`} className="text-primary stretched-link">
           Checkout more {title}
-        </a>
+        </Link>
       </div>
     </section>
   );

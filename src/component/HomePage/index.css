@@ -306,3 +306,6 @@ section {
   font: inherit;
   font-weight: bold;
 }
+.section-title >h2{
+  cursor: pointer;
+}

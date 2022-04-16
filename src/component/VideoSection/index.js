@@ -4,16 +4,6 @@ import "./index.css";
 
 export const VideoSection = ({ videos, allVideos }) => {
   const [video, setvideo] = useState(videos);
-  const [allShown, setAllShown] = useState(false);
-
-  const showAll = () => {
-    setvideo(allVideos);
-    setAllShown(true);
-  };
-  const showLess = () => {
-    setvideo(videos);
-    setAllShown(false);
-  };
 
   return (
     <section className=" " style={{ backgroundColor: "#fdfd96" }} id="videos">
@@ -47,15 +37,10 @@ export const VideoSection = ({ videos, allVideos }) => {
             );
           })}
         </div>
-        {allShown ? (
-          <p className="text-primary stretched-link" onClick={showLess}>
-            Show Less
-          </p>
-        ) : (
-          <p className="text-primary stretched-link" onClick={showAll}>
-            Checkout more videos
-          </p>
-        )}
+
+        <Link to={`videos`} className="text-primary stretched-link">
+          Checkout more videos
+        </Link>
       </div>
     </section>
   );

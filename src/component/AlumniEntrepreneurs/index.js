@@ -38,6 +38,7 @@ export const AlumniEntrepreneurs = ({ title, description, quote, data }) => {
                     width: "250px",
                     height: "430px",
                     marginBottom: "20px",
+                    overflow: "hidden",
                   }}
                 >
                   <img
@@ -76,7 +77,7 @@ export const AlumniEntrepreneurs = ({ title, description, quote, data }) => {
             );
           })}
         </div>
-        <a href="/#" className="text-primary stretched-link">
+        <a href="/alumni" className="text-primary stretched-link">
           Checkout more {title}
         </a>
       </div>

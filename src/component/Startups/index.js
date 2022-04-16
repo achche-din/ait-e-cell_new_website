@@ -2,6 +2,7 @@ import React from "react";
 import parse from "html-react-parser";
 
 import "./index.css";
+import { Link } from "react-router-dom";
 
 export const Startups = ({ title, description, quote, data }) => {
   return (
@@ -39,9 +40,9 @@ export const Startups = ({ title, description, quote, data }) => {
             );
           })}
         </div>
-        <a href="/#" className="text-primary stretched-link">
+        <Link to={`more${title}`} className="text-primary stretched-link">
           Checkout more {title}
-        </a>
+        </Link>
       </div>
     </section>
   );

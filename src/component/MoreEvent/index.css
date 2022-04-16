@@ -1,0 +1,65 @@
+.headings {
+  display: flex;
+  flex-wrap: wrap;
+  /* width: 100; */
+  gap: 0.8rem;
+  justify-content: center;
+  /* background-color: rebeccapurple; */
+  padding: 0 0 20px;
+  margin-top: 5rem;
+}
+.headings > h2 {
+  opacity: 0.6;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: 8px 20px;
+  line-height: 1;
+  margin: 0;
+  background: white;
+  color: #0099ff;
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 50px;
+  border: 2.5px solid #66ccff;
+}
+.main-heading {
+  opacity: 1 !important;
+  font-size: 24px !important;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: 8px 20px;
+  line-height: 1;
+  margin: 0;
+  background: white;
+  color: #0099ff;
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 50px;
+  border: 2.5px solid #66ccff;
+  margin-top: 10px !important;
+}
+.section-title > h2:hover {
+  opacity: 0.8;
+}
+
+.section-title h3 {
+  margin: 15px 0 0 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.section-title h3 span {
+  color: #0099ff;
+}
+
+.section-title p {
+  margin: 15px auto 0 auto;
+  font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+  .section-title p {
+    width: 50%;
+  }
+}
