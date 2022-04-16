@@ -77,7 +77,7 @@ export const AlumniEntrepreneurs = ({ title, description, quote, data }) => {
             );
           })}
         </div>
-        <a href="/alumni" className="text-primary stretched-link">
+        <a href="/allalumni" className="text-primary stretched-link">
           Checkout more {title}
         </a>
       </div>

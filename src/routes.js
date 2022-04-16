@@ -9,7 +9,7 @@ export const mainRoute = [
     component: HomePage,
   },
   {
-    path: "/:team",
+    path: "/all:team",
     exact: true,
     component: TeamPage,
   },

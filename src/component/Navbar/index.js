@@ -141,7 +141,7 @@ export const Navbar = ({ darkstyle }) => {
               </a>
             </li>
             <li className="primary">
-              <a href="/team" onClick={sidebarCloseHandler}>
+              <a href="/allteam" onClick={sidebarCloseHandler}>
                 Our Team
               </a>
             </li>
