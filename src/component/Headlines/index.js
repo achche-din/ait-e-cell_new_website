@@ -6,7 +6,7 @@ export const Headlines = ({ headlines }) => {
     <section id="headlines">
       {" "}
       {/* LatestUpdates */}
-      <div className="container">
+      <div className="container my-0">
         <div className="alert alert-info m-0 h-2" role="alert">
           <div className="container">
             <div className="row d-flex flex-column flex-sm-column flex-md-row">

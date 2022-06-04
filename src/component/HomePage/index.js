@@ -16,88 +16,13 @@ import "./index.css";
 
 export const HomePage = () => {
   const { data } = useDataHooks();
-
+  console.log("data", data);
   return (
     <>
       <Hero
         motto={data.otherdetails.length > 0 ? data.otherdetails[0].motto : null}
       />
       <Headlines headlines={data.latestheadlines} />
-
-      <section id="about" className="about">
-        {" "}
-        {/* documents */}
-        <div className="container">
-          <div className="section-title">
-            <div className="row content">
-              {/* {documents.map((item) => {
-                const { id, title, documentLink, image } = item;
-                return (
-                  <div className="col-lg-4 pt-4 pt-lg-0" key={id}>
-                    <a
-                      href={documentLink}
-                      className="btn-learn-more"
-                      style={{ textDecoration: "none" }}
-                    >
-                      {title}
-                    </a>
-                  </div>
-                );
-              })} */}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        className="services "
-        id="solution"
-        style={{
-          background: "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)",
-        }}
-      >
-        <div className="container solution-event d-flex   ">
-          <div className="row">
-            <div className="col-lg-7 bg-white py-2 col-md-12  ">
-              <div className="text-dark mt-5 ">
-                <div className="container-heading">
-                  <h2>
-                    “ Stay committed to your decisions, but stay flexible in
-                    your approch.” <br />
-                    -Tony Robbins.
-                  </h2>
-                </div>
-                <br />
-                I&E-Cell is proud to announce that Udchalo, an online service
-                portal founded by AIT Alumni Mr. Ravi Kumar has ✨𝐖𝐨𝐧 𝐍𝐚𝐭𝐢𝐨𝐧𝐚𝐥
-                𝐒𝐭𝐚𝐫𝐭𝐮𝐩 𝐀𝐰𝐚𝐫𝐝 𝟐𝟎𝟐𝟏✨ in the Travel Planning and Discovery
-                Category.
-                <br />
-                <br />
-                We as a part of I&E-Cell respects and appreciate the consistent
-                efforts made by him and all the employees of Udchalo.
-                <br />
-                <br />
-                💫I&E-Cell commends them for bringing great laurels to our
-                college.💫
-                <br />
-                -Heartiest Congratulations from I&E-Cell,Army Institute of
-                Technology,Pune
-              </div>
-            </div>
-
-            <div className="col-lg-5 col-md-6 py-md-3 mx-md-auto">
-              <div className="img-container ">
-                <img
-                  src="https://github.com/achche-din/aitecell-frontend/blob/main/src/assets/4.jpg?raw=true"
-                  alt="ravi kumar, CEO at udchalo"
-                  className=" img-thumbnail image_event"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <Newsletter />
       <AboutUs
@@ -126,7 +51,7 @@ export const HomePage = () => {
       )}
       {data.sessions.length > 0 && (
         <Events
-          title="Session"
+          title="Sessions"
           description=""
           quote=""
           data={data.sessions.slice(0, 3)}

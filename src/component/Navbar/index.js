@@ -79,7 +79,10 @@ export const Navbar = ({ darkstyle }) => {
               </a>
             </li>
             <li className={isActive ? "active" : undefined}>
-              <a href="/team" className={darkstyle ? "text-dark" : undefined}>
+              <a
+                href="/allteam"
+                className={darkstyle ? "text-dark" : undefined}
+              >
                 Our Team
               </a>
             </li>

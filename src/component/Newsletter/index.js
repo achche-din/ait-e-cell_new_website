@@ -20,7 +20,7 @@ export const Newsletter = () => {
                 <div className="text-dark">
                   We the Innovation and entrepreneurship cell of Army Institute
                   Of Technology are delighted to present our very first
-                  newsletter "Udyamita"
+                  newsletter "Udyamita".
                   <br />
                   <br />
                   The E-Cell (Entrepreneurship Cell) aims to promote the
@@ -32,7 +32,7 @@ export const Newsletter = () => {
                   <br />
                   <br />
                   This newsletter includes all event details occurred in e-cell
-                  this year (session 2020-2021) .<br />
+                  this year (session 2021-2022) .<br />
                   It's a record of the wonderful things the E-Cell has been able
                   to achieve with the cooperation of the esteemed faculty and
                   students of our college. We hope that this record may serve to
@@ -57,7 +57,7 @@ export const Newsletter = () => {
           <div className="col-lg-5 col-md-6 py-md-3 mx-md-auto">
             <div className="img-container ">
               <img
-                src="https://aitecell.in/assets/img/newletter_image.png"
+                src="https://aitecell.in/assets/img/newsletter_image.png"
                 alt="solutions"
                 className=" img-thumbnail image_event"
               />

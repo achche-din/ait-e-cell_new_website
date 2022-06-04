@@ -21,3 +21,7 @@
     transform: translate(-100%, 0);
   }
 }
+#headlines{
+  padding-top: 0px;
+  margin-bottom: 1rem;
+}
