@@ -11,12 +11,13 @@ function MoreEvent() {
   const [head, setHead] = useState(more);
 
   const [title, setTitle] = useState(head);
-
+  var videosData = data.videos;
   useEffect(() => {
     if (head === "events") {
       setSortedData(data.events);
     } else if (head === "videos") {
-      setSortedData(data.videos);
+      setSortedData(videosData);
+      setTitle("Videos");
     } else if (head === "visits") {
       setSortedData(data.visits);
     } else if (head === "Sessions" || head === "session") {
@@ -28,6 +29,7 @@ function MoreEvent() {
       setSortedData(data.training);
     }
     console.log("head", head);
+    console.log("sorted data before click", videosData);
   }, [head]);
   const darkstyle = true;
 
@@ -41,6 +43,7 @@ function MoreEvent() {
             className="display-5 mt-1 active opacity-50"
             onClick={(e) => {
               setSortedData(data.videos);
+              console.log("sorted data on click", sortedData);
               setTitle("Videos");
               setHead("videos");
             }}
@@ -108,12 +111,12 @@ function MoreEvent() {
             if (title === "Videos") {
               const { id, title } = item;
               var { videoLink } = item;
-              // videoLink = videoLink.split("/").pop();
-              // videoLink = "https://www.youtube.com/embed/"
-              //   .concat(videoLink)
-              //   .concat(
-              //     `?enablejsapi=1&origin=${process.env.REACT_APP_FRONTEND_ENDPOINT}`
-              //   );
+              videoLink = videoLink.split("/").pop();
+              videoLink = "https://www.youtube.com/embed/"
+                .concat(videoLink)
+                .concat(
+                  `?enablejsapi=1&origin=${process.env.REACT_APP_FRONTEND_ENDPOINT}`
+                );
 
               return (
                 <div

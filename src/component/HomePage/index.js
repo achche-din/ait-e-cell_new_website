@@ -78,7 +78,7 @@ export const HomePage = () => {
           title="Startup Initiatives"
           description="Check our <span>Startup Initiatives</span>"
           quote="“The price of success is hard work, dedication to the job at hand, and the determination that whether we win or lose, we have applied the best of ourselves to the task at hand.” - Vince Lombardi"
-          data={data.startups.slice(0, 6)}
+          data={data.startups.slice(0, 3)}
         />
       )}
       {data.collaboration.length > 0 && (
@@ -93,7 +93,7 @@ export const HomePage = () => {
       {data.alumniEntrepreneurs.length > 0 && (
         <AlumniEntrepreneurs
           title="Alumni Entrepreneurs"
-          description="All these centers provide active support to aspiring students of AIT"
+          description="All these Alumni provide active support to aspiring students of AIT"
           quote=""
           data={data.alumniEntrepreneurs.slice(0, 4)}
         />
@@ -105,7 +105,7 @@ export const HomePage = () => {
         industrialMentors={data.industrialMentors}
       />
 
-      <ContactUs social_links={data.links.slice(0, 5)} />
+      <ContactUs social_links={data.links} />
 
       <Footer />
     </>
